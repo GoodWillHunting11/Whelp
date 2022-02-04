@@ -1,4 +1,4 @@
-from app.models import db, Business
+from app.models import db, Business, Category
 
 # Adds a demo user, you can add other users here if you want
 def seed_businesses():
@@ -12,6 +12,18 @@ def seed_businesses():
         name="Skyline Animal Hospital", address='1378 Grizzly Ave', city='Idaho Falls', state='ID', zipcode='83402', phone='7685945489', website='http://skylineanimalhospital.com/')
     walker = Business(
         name='The Pet Sitter of Boise', address='12350 W Lachlan St', city='Boise', state='ID', zipcode='83709', phone='4569871234', website='http://thepetsitterofboise.com/')
+
+    groomer_cat = Category(name='Groomers')
+    dog_park_cat = Category(name='Parks')
+    walker_cat = Category(name='Walkers')
+    vet_cat = Category(name="Veterinarians")
+    pet_store_cat = Category(name='Pet Stores')
+
+    dog_park.categories.append(dog_park_cat)
+    pet_store.categories.append(pet_store_cat)
+    groomer.categories.append(groomer_cat)
+    vet.categories.append(vet_cat)
+    walker.categories.append(walker_cat)
 
     db.session.add(dog_park)
     db.session.add(pet_store)
