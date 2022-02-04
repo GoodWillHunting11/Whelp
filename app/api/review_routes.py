@@ -1,5 +1,5 @@
 from flask import Blueprint, Response, request
-from app.models import db, Review
+from app.models import db, Review, Photo
 import json
 import datetime
 
@@ -23,7 +23,14 @@ def post_review(business_id):
         business_id = data["business_id"],
     )
 
+    new_photo = Photo(
+        url = data["url"],
+        user_id = data["user_id"],
+        business_id = data["business_id"],
+    )
+
     db.session.add(new_review)
+    db.session.add(new_photo)
 
     db.session.commit()
 
@@ -42,3 +49,11 @@ def edit_review(business_id, review_id):
     db.session.commit()
 
     return 'test patch'
+
+@review_routes.route('/<int:review_id>', methods=["DELETE"])
+def delete_review(business_id, review_id):
+    Review.query.filter(Review.id == review_id).delete()
+
+    db.session.commit()
+
+    return 'test delete'
