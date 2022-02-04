@@ -7,9 +7,14 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
+    username = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), nullable=False)
+    zipcode = db.Column(db.String(15), nullable=False)
+    role = db.Column(db.String(25), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    reviews = db.relationship("Review", back_populates="user", cascade='all, delete-orphan')
+    photos_user = db.relationship("Photo", back_populates="user_photo", cascade="all, delete-orphan")
 
     @property
     def password(self):
