@@ -29,14 +29,15 @@ function SplashImage() {
                                 <input className='location-search' id="location" placeholder='Near'></input>
                             </label>
                             <button className='splash-submit' onClick={handleForm}><FontAwesomeIcon icon={faPaw} className='fa-paw' /></button>
+                            <div className='splash-links-container'>
+                                <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faCut} className='fa-nav' />Groomers</Link>
+                                <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faDog} className='fa-nav' />Parks</Link>
+                                <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faBell} className='fa-nav' />Walkers</Link>
+                                <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faStethoscope} className='fa-nav' />Veterinarians</Link>
+                                <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faBone} className='fa-nav' />Pet Stores</Link>
+                            </div>
                         </form>
-                        <div className='splash-links-container'>
-                            <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faCut} className='fa-nav' />Groomers</Link>
-                            <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faDog} className='fa-nav' />Parks</Link>
-                            <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faBell} className='fa-nav' />Walkers</Link>
-                            <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faStethoscope} className='fa-nav' />Veterinarians</Link>
-                            <Link to='/login' className='splash-links'><FontAwesomeIcon icon={faBone} className='fa-nav' />Pet Stores</Link>
-                        </div>
+
                 </div>
 
             </div>
