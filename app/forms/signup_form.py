@@ -19,9 +19,20 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+def validate_email(form, field):
+    email = field.data
+    if "@" not in email or "." not in email:
+        raise ValidationError('Please enter a valid email.')
+
+def validate_zip(form, field):
+    zipcode = field.data
+    if(not zipcode.isdigit() or len(zipcode) != 5):
+        raise ValidationError('Please enter a valid zipcode.')
+
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    email = StringField('email', validators=[DataRequired(), validate_email, user_exists])
+    zipcode = StringField('zipcode', validators=[DataRequired(), validate_zip])
     password = StringField('password', validators=[DataRequired()])
