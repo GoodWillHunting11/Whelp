@@ -1,5 +1,5 @@
-from flask import Blueprint, Response
-from app.models import Review
+from flask import Blueprint, Response, request
+from app.models import db, Review
 import json
 
 
@@ -12,5 +12,21 @@ def get_reviews(business_id):
     return {'reviews': [review.to_dict() for review in reviews]}
 
 @review_routes.route('/', methods=['POST'])
-def post_review():
-    new_review = Review()
+def post_review(business_id):
+    data = json.loads(request.data)
+
+    new_review = Review(
+        rating = data["rating"],
+        review = data["review"],
+        user_id = data["user_id"],
+        business_id = data["business_id"],
+    )
+
+    db.session.add(new_review)
+    db.session.commit()
+
+    return 'test'
+
+@review_routes.route('/<int:review_id>', methods=["PATCH"])
+def edit_review(business_id, review_id):
+    data = json.loads(request.data)
