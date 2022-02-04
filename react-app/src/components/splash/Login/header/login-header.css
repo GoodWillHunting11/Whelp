@@ -1,0 +1,15 @@
+.main-log {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    background-color: #de791b;
+    height: 95px;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo-log {
+    display: flex;
+    align-items: center;
+}
