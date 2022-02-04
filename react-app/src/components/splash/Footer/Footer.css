@@ -1,0 +1,24 @@
+.footer {
+    position: fixed;
+    height: 56px;
+    bottom: 0;
+    margin-top: -10px;
+    width: 100%;
+    background-color: #de791b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    font-size: 13px;
+    z-index: 100;
+}
+
+.footer-content {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
