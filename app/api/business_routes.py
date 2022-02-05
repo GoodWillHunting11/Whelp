@@ -1,13 +1,13 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import Business, Category, Photo, Map
+from app.models import Business, Category, Photo, Map, db
 from sqlalchemy.orm import joinedload
 
 business_routes = Blueprint('businesses', __name__)
 
 
-@business_routes.route('/')
-@login_required
+@business_routes.route('/', methods=['GET'])
+# @login_required
 def all_businesses():
     business_data = Business.query \
                                 .options(joinedload(Business.photos_business)) \
@@ -83,3 +83,35 @@ def get_reviews(reviews):
          }
          data.append(review_set)
     return data
+
+
+@business_routes.route('/new', methods=['POST'])
+# @login_required
+def create_business():
+    data = request.json
+    business = Business(**data)
+    db.session.add(business)
+    db.session.commit()
+    print(business)
+    return to_dict(business)
+
+def to_dict(self):
+    return {
+        'id': self.id,
+        'name': self.name,
+        'address': self.address,
+        'city': self.city,
+        'state': self.state,
+        'zipcode': self.zipcode,
+        'phone': self.phone,
+        'website': self.website
+    }
+
+@business_routes.route('/delete', methods=['DELETE'])
+# @login_required
+def delete_business():
+    data = request.json
+    remove = Business.query.get(data['id'])
+    db.session.delete(remove)
+    db.session.commit()
+    return to_dict(remove)
