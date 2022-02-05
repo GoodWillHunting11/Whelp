@@ -89,7 +89,10 @@ def get_reviews(reviews):
 # @login_required
 def create_business():
     data = request.json
+    cat = Category.query.filter(Category.name == data['category']).one()
+    data.pop('category')
     business = Business(**data)
+    business.categories.append(cat)
     db.session.add(business)
     db.session.commit()
     print(business)
@@ -107,11 +110,10 @@ def to_dict(self):
         'website': self.website
     }
 
-@business_routes.route('/delete', methods=['DELETE'])
+@business_routes.route('/delete/<int:id>', methods=['DELETE'])
 # @login_required
-def delete_business():
-    data = request.json
-    remove = Business.query.get(data['id'])
+def delete_business(id):
+    remove = Business.query.get(id)
     db.session.delete(remove)
     db.session.commit()
     return to_dict(remove)
