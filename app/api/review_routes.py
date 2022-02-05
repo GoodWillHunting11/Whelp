@@ -1,5 +1,6 @@
-from flask import Blueprint, Response, request
+from flask import Blueprint, request
 from app.models import db, Review, Photo
+from app.forms import ReviewForm
 import json
 import datetime
 
@@ -14,25 +15,28 @@ def get_reviews(business_id):
 
 @review_routes.route('/', methods=['POST'])
 def post_review(business_id):
-    data = json.loads(request.data)
+    form = ReviewForm()
 
-    new_review = Review(
-        rating = data["rating"],
-        review = data["review"],
-        user_id = data["user_id"],
-        business_id = data["business_id"],
-    )
+    if form.validate_on_submit():
+        data = json.loads(request.data)
 
-    new_photo = Photo(
-        url = data["url"],
-        user_id = data["user_id"],
-        business_id = data["business_id"],
-    )
+        new_review = Review(
+            rating = data["rating"],
+            review = data["review"],
+            user_id = data["user_id"],
+            business_id = data["business_id"],
+        )
 
-    db.session.add(new_review)
-    db.session.add(new_photo)
+        new_photo = Photo(
+            url = data["url"],
+            user_id = data["user_id"],
+            business_id = data["business_id"],
+        )
 
-    db.session.commit()
+        db.session.add(new_review)
+        db.session.add(new_photo)
+
+        db.session.commit()
 
     return 'test post'
 
