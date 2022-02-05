@@ -115,3 +115,18 @@ def delete_business():
     db.session.delete(remove)
     db.session.commit()
     return to_dict(remove)
+
+@business_routes.route('/edit/<int:id>', methods=['PUT'])
+# @login_required
+def patch_business(id):
+    data = request.json
+    business = Business.query.get(id)
+    business.name = data['name']
+    business.address = data['address']
+    business.city = data['city']
+    business.state = data['state']
+    business.zipcode = data['zipcode']
+    business.phone = data['phone']
+    business.website = data['website']
+    db.session.commit()
+    return to_dict(business)
