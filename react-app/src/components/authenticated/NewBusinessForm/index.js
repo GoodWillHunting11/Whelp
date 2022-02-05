@@ -133,7 +133,7 @@ const NewBusinessForm = () => {
                         <option value="Groomers">Groomers</option>
                         <option value="Pet Stores">Pet Stores</option>
                         <option value="Veterinarians">Veterinarians</option>
-                        <option value="Walker">Walker</option>
+                        <option value="Walkers">Walkers</option>
                     </select>
                 </div>
                 <div>
