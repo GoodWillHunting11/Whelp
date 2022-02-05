@@ -9,7 +9,7 @@ function SplashNavigation() {
     return (
         <div className='main'>
             <div className='quick'>
-                <Link to='/login' className='header-button'>Write a Review</Link>
+                <Link to='/login' className='header-button'>Add a Business</Link>
                 <a href="https://github.com/GoodWillHunting11/Whelp" className='header-button' target='_blank'>GitHub Repo</a>
                 <div class="dropdown">
                     <button class="dropbtn">LinkedIn
