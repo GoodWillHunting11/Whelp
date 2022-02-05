@@ -41,4 +41,5 @@ def seed_businesses():
 # dependent entities
 def undo_businesses():
     db.session.execute('TRUNCATE businesses RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE categories RESTART IDENTITY CASCADE;')
     db.session.commit()
