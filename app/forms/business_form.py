@@ -10,12 +10,12 @@ def validate_zip(form, field):
 
 def validate_phone(form, field):
     phone = field.data
-    if(not phone.isdigit() or len(phone) != 9):
-        raise ValidationError('Please enter a 9 digit phone number without symbols.')
+    if(not phone.isdigit() or len(phone) != 10):
+        raise ValidationError('Please enter a 10 digit phone number without symbols.')
 
 def validate_web(form, field):
     web = field.data
-     if "https://" not in web or "http://" not in web or "." not in web:
+    if "http" not in web or "." not in web:
         raise ValidationError('Please enter a valid url.')
 
 class NewBusinessForm(FlaskForm):

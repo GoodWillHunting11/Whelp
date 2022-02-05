@@ -1,10 +1,20 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
 from app.models import Business, Category, Photo, Map, db
+from app.forms import NewBusinessForm
 from sqlalchemy.orm import joinedload
 
 business_routes = Blueprint('businesses', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 @business_routes.route('/', methods=['GET'])
 # @login_required
@@ -89,14 +99,21 @@ def get_reviews(reviews):
 # @login_required
 def create_business():
     data = request.json
-    cat = Category.query.filter(Category.name == data['category']).one()
-    data.pop('category')
-    business = Business(**data)
-    business.categories.append(cat)
-    db.session.add(business)
-    db.session.commit()
-    print(business)
-    return to_dict(business)
+    form = NewBusinessForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+        cat = Category.query.filter(Category.name == data['category']).one()
+        data.pop('category')
+        business = Business(**data)
+        business.categories.append(cat)
+        db.session.add(business)
+        db.session.commit()
+
+        return to_dict(business)
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 def to_dict(self):
     return {
