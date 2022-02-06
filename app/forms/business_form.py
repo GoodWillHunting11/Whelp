@@ -18,11 +18,16 @@ def validate_web(form, field):
     if "http" not in web or "." not in web:
         raise ValidationError('Please enter a valid url.')
 
+def validate_state(form, field):
+    state = field.data
+    if(len(state) != 2):
+        raise ValidationError('Please enter a valid state abbreviation.')
+
 class NewBusinessForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     address = StringField('address', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
-    state = StringField('state', validators=[DataRequired()])
+    state = StringField('state', validators=[DataRequired(), validate_state])
     zipcode = StringField('zipcode', validators=[DataRequired(), validate_zip])
     phone = StringField('phone', validators=[DataRequired(), validate_phone])
     website = StringField('website', validators=[DataRequired(), validate_web])

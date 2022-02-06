@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
-from app.models import Business, Category, Photo, Map, db
+from app.models import Business, Category, Photo, Map, db, Review, User
 from app.forms import NewBusinessForm
 from sqlalchemy.orm import joinedload
 
@@ -21,7 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
 def all_businesses():
     business_data = Business.query \
                                 .options(joinedload(Business.photos_business)) \
-                                .options(joinedload(Business.reviews)) \
+                                .options(joinedload(Business.reviews).options(joinedload(Review.user))) \
                                 .options(joinedload(Business.maps)) \
                                 .options(joinedload(Business.categories)) \
                                 .all()
