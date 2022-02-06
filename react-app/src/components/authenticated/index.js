@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, Link, useHistory } from 'react-router-dom';
 
 // Import components
-import AppNavigation from './Navigation';
-import Footer from '../splash/Footer';
+import HeroImage from './Hero';
 
 import './App.css'
 
@@ -15,9 +14,7 @@ const HomeApp = () => {
     const businesses = useSelector(state => state.businessState.entries)
 
     return (
-        <div className='app-container'>
-            HelloMo
-        </div>
+            <HeroImage />
     )
 }
 
