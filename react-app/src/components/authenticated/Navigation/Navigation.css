@@ -1,0 +1,48 @@
+.main-logged {
+    display: grid;
+    background-color: #de791b;
+    height: 64px;
+    z-index: 100;
+}
+
+.main-nav {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    z-index: 100;
+    height: 64px;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+}
+
+.logout-button {
+    color: rgba(255, 255 ,255, 1);
+    background-color: rgba(255, 255 ,255, 0);
+    border: 2px solid white;
+    transition: color .15s ease-in-out;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 33px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 5px;
+    text-decoration: none;
+
+}
+
+.logout-button:hover {
+    opacity: 1;
+    color: rgba(0,0,0,.5);
+    background-color: white;
+    cursor: pointer;
+}
+
+.logout-button:focus {
+    box-shadow: inset 0 0 0 2px rgb(0 0 0 / 60%);
+    outline: none;
+}
