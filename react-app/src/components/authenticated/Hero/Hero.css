@@ -1,6 +1,6 @@
 .hero-container {
     height: 50vh;
-    background-image: url('../../../img/splash.jpg');
+    background-image: url('../../../img/hero.jpg');
     background-position: center;
     background-size: cover;
     display: flex;
