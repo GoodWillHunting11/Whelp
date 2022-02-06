@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link, Redirect } from 'react-router-dom'
+import { removeBusiness } from '../../../store/business'
 
 
 import './SingleBusiness.css'
@@ -8,13 +9,18 @@ import './SingleBusiness.css'
 
 const SingleBusiness = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const { id } = useParams()
     const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
     const single = businesses.find(single => single.id === +id)
-    console.log(id)
-    console.log(businesses)
-    console.log(single)
+
+    const handleDelete = async (e) => {
+        e.preventDefault()
+
+        const deleting = await dispatch(removeBusiness(id))
+        history.push('/')
+    }
 
     if(!single) {
         return (
@@ -24,7 +30,7 @@ const SingleBusiness = () => {
 
     return (
         <div className='single-business-container'>
-            {user.role === 'admin' ? <button>Delete Business</button>:<></>}
+            {user.role === 'admin' ? <button onClick={handleDelete}>Delete Business</button>:<></>}
             {user.role === 'admin' ? <button>Edit Business</button>:<></>}
             <p>{single?.name}</p>
             <p>{single?.address}</p>
