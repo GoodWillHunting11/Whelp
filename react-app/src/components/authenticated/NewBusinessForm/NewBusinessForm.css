@@ -1,0 +1,88 @@
+.new-business-form-container {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    width: 60%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new-business-label {
+    display: block;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.new-business-input {
+    display: block;
+    margin-top: 10px;
+    max-width: 750px;
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
+.new-business-select {
+    display: block;
+    margin-top: 10px;
+    max-width: 757px;
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .5);
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+}
+
+.new-business-h1 {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    margin: 0px;
+    color: #3a92e3;
+}
+
+.new-business-p {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.add-business-button {
+    color: rgba(255, 255 ,255, 1);
+    background-color: #3a92e3;
+    border: 2px solid #3a92e3;
+    transition: color .15s ease-in-out;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.add-business-button:hover {
+    background-color: #de791b;
+    border: 2px solid #de791b;
+    transition: .1s ease-in-out;
+}
+
+
+.add-business-pics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-pics {
+    max-width: 200px;
+    width: 100%;
+}

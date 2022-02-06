@@ -61,7 +61,7 @@
 
 .signup-button {
     color: rgba(255, 255 ,255, 1);
-    background-color: none;
+    background-color: rgba(255, 255 ,255, 0);
     border: 2px solid white;
     transition: color .15s ease-in-out;
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
@@ -75,7 +75,6 @@
     align-items: center;
     border-radius: 5px;
     margin-left: 5px;
-    margin-right: 25px;
     text-decoration: none;
 
 }
@@ -113,8 +112,8 @@
     color: white;
     padding: 14px 16px;
     background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
+    font-family: inherit;
+    margin: 0;
   }
 
   /* Dropdown content (hidden by default) */

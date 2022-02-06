@@ -1,6 +1,6 @@
-.main-container {
-    height: 100vh;
-    background-image: url('../../../img/splash.jpg');
+.hero-container {
+    height: 50vh;
+    background-image: url('../../../img/hero.jpg');
     background-position: center;
     background-size: cover;
     display: flex;
@@ -8,28 +8,28 @@
 }
 
 
-.splash-content {
+.hero-content {
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 65% 35%;
     margin-top: -175px;
     width: 100%;
 }
 
-.splash-logo-container {
+.hero-logo-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding: 25px;
 }
 
-.splash-form-container {
+.hero-form-container {
     display: grid;
     grid-template-rows: 1fr 2.6fr;
     justify-items: center;
     width: 100%;
 }
 
-.splash-search {
+.hero-search {
     height: 45.22px;
     width: 50%;
     border: none;
@@ -40,7 +40,7 @@
     border-bottom-left-radius: 4px;
 }
 
-.splash-search:focus {
+.hero-search:focus {
     outline: none;
 }
 
@@ -61,7 +61,7 @@
     outline: none;
 }
 
-.splash-submit {
+.hero-submit {
     height: 45.22px;
     width: 8%;
     border: none;
@@ -70,11 +70,11 @@
     border-bottom-right-radius: 4px;
 }
 
-.splash-submit:focus {
+.hero-submit:focus {
     outline: none;
 }
 
-.splash-submit:hover {
+.hero-submit:hover {
     cursor: pointer;
     background-color: #1b91e0;
 }
@@ -84,12 +84,12 @@
     font-size: 16px;
 }
 
-.splash-links-container {
+.hero-links-container {
     margin-top: 15px;
     text-align: center;
 }
 
-.splash-links {
+.hero-links {
     margin-top: -100px;
     color: white;
     text-decoration: none;
