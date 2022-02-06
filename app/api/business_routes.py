@@ -33,6 +33,7 @@ def all_businesses():
         category_data = get_category(business.categories)
 
         each = {
+            "id": business.id,
             "name": business.name,
             "address": business.address,
             "city": business.city,

@@ -14,11 +14,11 @@ function AppNavigation() {
                     <Link to='/' className='header-button'>Home</Link>
                     <Link to='/businesses/new' className='header-button'>Add a Business</Link>
                     <a href="https://github.com/GoodWillHunting11/Whelp" className='header-button' target='_blank'>GitHub Repo</a>
-                    <div class="dropdown">
-                        <button class="dropbtn">LinkedIn
-                        <i class="fa fa-caret-down"></i>
+                    <div className="dropdown">
+                        <button className="dropbtn">LinkedIn
+                        <i className="fa fa-caret-down"></i>
                         </button>
-                        <div class="dropdown-content">
+                        <div className="dropdown-content">
                         <a href="#">Seth Corbett</a>
                         <a href="https://www.linkedin.com/in/aaron-short-780446179/" target="_blank">Aaron Short</a>
                         <a href="https://www.linkedin.com/in/andres-aguilar-6408aa227/" target="_blank">Andres Aguilar</a>

@@ -14,6 +14,7 @@ import NewBusinessForm from './components/authenticated/NewBusinessForm';
 import HomeApp from './components/authenticated';
 import AppNavigation from './components/authenticated/Navigation';
 import Footer from './components/splash/Footer';
+import SingleBusiness from './components/authenticated/SingleBusiness';
 import { authenticate } from './store/session';
 
 // Import states
@@ -76,7 +77,10 @@ function App() {
           </Route>
           <Route path='/businesses/new' exact={true}>
               <NewBusinessForm />
-            </Route>
+          </Route>
+          <Route path='/businesses/:id' exact={true}>
+              <SingleBusiness />
+          </Route>
           <Route>
               Whelp! There's nothing here.
           </Route>
