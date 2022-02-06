@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>For testing server side validations</title>
+    </head>
+    <body>
+        <form method="POST" action="/api/businesses/{{business_id}}/reviews/">
+            {{ form.csrf_token }}
+            {{ form.rating.label }} {{ form.rating }}
+            {{ form.review.label }} {{ form.review }}
+            {{ form.url.label }} {{ form.url }}
+            {{ form.submit.label }} {{ form.submit }}
+        </form>
+    </body>
+</html>
