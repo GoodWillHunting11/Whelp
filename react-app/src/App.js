@@ -9,6 +9,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import LogoutButton from './components/auth/LogoutButton';
 import SplashPage from './components/splash/SplashPage';
 import NewBusinessForm from './components/authenticated/NewBusinessForm';
+import NewReviewForm from './components/authenticated/NewReviewForm';
 
 // Import auth components
 import HomeApp from './components/authenticated';
@@ -20,6 +21,7 @@ import { authenticate } from './store/session';
 // Import states
 import { getAllBusinesses } from './store/business';
 import * as sessionActions from './store/session'
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -80,6 +82,9 @@ function App() {
           </Route>
           <Route path='/businesses/:id' exact={true}>
               <SingleBusiness />
+          </Route>
+          <Route path='/businesses/:id/reviews/new' exact={true}>
+              <NewReviewForm />
           </Route>
           <Route>
               Whelp! There's nothing here.
