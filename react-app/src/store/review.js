@@ -29,14 +29,14 @@ export const getAllReviews = businessId => async dispatch => {
 
     if (response.ok) {
         const reviews = await response.json()
-        console.log('hi reviews', reviews)
         dispatch(loadReviews(reviews))
+        return reviews
     }
 }
 
-export const newReview = (payload, businessId) => async dispatch => {
+export const newReview = (payload) => async dispatch => {
 
-    const response = await fetch(`/api/businesses/${businessId}/reviews`, {
+    const response = await fetch(`/api/businesses/${payload.businessId}/reviews/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -46,6 +46,8 @@ export const newReview = (payload, businessId) => async dispatch => {
 
     if (response.ok) {
         const newRev = await response.json()
+        console.log(newRev)
+
         dispatch(addReview(newRev))
         return newRev
     }
@@ -58,7 +60,7 @@ const reviewReducer = (state = initialState, action) => {
         case LOAD_REVIEWS:
             return { ...state, entries: [...action.payload.reviews]}
         case ADD_REVIEW:
-            return state;
+            return { ...state, entries: []}
         case DELETE_REVIEW:
             return state;
         default:

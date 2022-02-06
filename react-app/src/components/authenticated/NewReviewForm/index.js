@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link, useHistory, useParams } from 'react-router-dom';
-import { getAllReviews, newReview } from '../../../store/review';
+import { useHistory, useParams } from 'react-router-dom';
+import { newReview } from '../../../store/review';
 import './NewReviewForm.css'
 
 const NewReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const params = useParams()
-    console.log(params)
+
+    const user = useSelector(state => state.session.user)
 
     const [errors, setErrors] = useState([]);
     const [rating, setRating] = useState(0);
@@ -21,18 +22,19 @@ const NewReviewForm = () => {
         const payload = {
             rating: parseInt(rating),
             review,
-            url
+            url,
+            businessId: params.id,
+            userId: user.id
         }
 
-        console.log(payload)
-
         const newRev = await dispatch(newReview(payload))
+        console.log(newRev)
 
         if(newRev.errors) {
             setErrors(newRev.errors)
         }
         else if (!newRev.errors) {
-            history.push(`/businesses/${newBiz.id}`)
+            history.push(`/businesses/${newRev.businessId}`)
         }
 
     }
