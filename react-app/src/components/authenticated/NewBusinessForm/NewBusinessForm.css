@@ -1,4 +1,6 @@
 .new-business-form-container {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
     width: 60%;
     margin-top: 50px;
     margin-left: auto;
@@ -70,4 +72,17 @@
     background-color: #de791b;
     border: 2px solid #de791b;
     transition: .1s ease-in-out;
+}
+
+
+.add-business-pics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-pics {
+    max-width: 200px;
+    width: 100%;
 }

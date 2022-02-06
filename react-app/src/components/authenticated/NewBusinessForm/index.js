@@ -4,7 +4,10 @@ import { Redirect, Link, useHistory } from 'react-router-dom';
 import { getAllBusinesses, newBusiness } from '../../../store/business';
 import * as sessionActions from '../../../store/session'
 
-// Import components
+// Import pics
+import bath from '../../../img/bath.png'
+import stroller from '../../../img/stroller.png'
+import walker from '../../../img/walker.png'
 
 import './NewBusinessForm.css'
 
@@ -33,7 +36,7 @@ const NewBusinessForm = () => {
             setErrors(newBiz.errors)
         }
         else if (!newBiz.errors) {
-            history.push('/')
+            history.push(`/businesses/${newBiz.id}`)
         }
 
     }
@@ -147,7 +150,11 @@ const NewBusinessForm = () => {
                             <button className='add-business-button' type='submit'>Add Business</button>
                     </div>
             </form>
-
+            <div className='add-business-pics'>
+                <img className='icon-pics' src={bath} alt='Puppy bath' />
+                <img className='icon-pics' src={walker} alt='Puppy on a leash'/>
+                <img className='icon-pics' src={stroller} alt='Puppy in a stroller'/>
+            </div>
         </div>
     )
 }
