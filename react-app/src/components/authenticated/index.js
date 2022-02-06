@@ -16,8 +16,7 @@ const HomeApp = () => {
 
     return (
         <div className='app-container'>
-            <AppNavigation />
-            <Footer />
+            HelloMo
         </div>
     )
 }

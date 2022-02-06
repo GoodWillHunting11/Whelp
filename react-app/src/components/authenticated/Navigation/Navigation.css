@@ -1,3 +1,20 @@
+.main-logged {
+    display: grid;
+    background-color: #de791b;
+    height: 64px;
+    z-index: 100;
+}
+
+.main-nav {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    z-index: 100;
+    height: 64px;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+}
+
 .logout-button {
     color: rgba(255, 255 ,255, 1);
     background-color: rgba(255, 255 ,255, 0);

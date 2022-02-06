@@ -12,6 +12,8 @@ import NewBusinessForm from './components/authenticated/NewBusinessForm';
 
 // Import auth components
 import HomeApp from './components/authenticated';
+import AppNavigation from './components/authenticated/Navigation';
+import Footer from './components/splash/Footer';
 import { authenticate } from './store/session';
 
 // Import states
@@ -61,23 +63,25 @@ function App() {
 
   return loaded && (
     <BrowserRouter>
-      <Switch>
-        <Route path='/' exact={true}>
-          <HomeApp />
-        </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/signup' exact={true}>
-          <SignUpForm />
-        </Route>
-        <Route path='/businesses/new' exact={true}>
-            <NewBusinessForm />
+      <AppNavigation />
+        <Switch>
+          <Route path='/' exact={true}>
+            <HomeApp />
           </Route>
-        <Route>
-            Whelp! There's nothing here.
-        </Route>
-      </Switch>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/signup' exact={true}>
+            <SignUpForm />
+          </Route>
+          <Route path='/businesses/new' exact={true}>
+              <NewBusinessForm />
+            </Route>
+          <Route>
+              Whelp! There's nothing here.
+          </Route>
+        </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
