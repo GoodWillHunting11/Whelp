@@ -8,6 +8,7 @@ import LogoutButton from './components/auth/LogoutButton';
 import SplashPage from './components/splash/SplashPage';
 import NewBusinessForm from './components/authenticated/NewBusinessForm';
 import { authenticate } from './store/session';
+import { getAllBusinesses } from './store/business';
 import * as sessionActions from './store/session'
 
 function App() {
@@ -23,6 +24,15 @@ function App() {
 
     })();
   }, [dispatch]);
+
+  useEffect(() => {
+    (async() => {
+      // await dispatch(authenticate());
+      // setLoaded(true);
+      await dispatch(sessionActions.authenticate()).then(() => setLoaded(true));
+      await dispatch(getAllBusinesses())
+    })();
+  }, [loaded]);
 
   if (!user) {
     return (
