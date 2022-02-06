@@ -28,25 +28,41 @@ export const getAllReviews = businessId => async dispatch => {
     const response = await fetch (`/api/businesses/${businessId}/reviews`)
 
     if (response.ok) {
-        const reviews = response.json()
+        const reviews = await response.json()
         console.log('hi reviews', reviews)
         dispatch(loadReviews(reviews))
     }
 }
 
-export const newReview = payload => async dispatch => {
+export const newReview = (payload, businessId) => async dispatch => {
 
-    const response = await fetch()
+    const response = await fetch(`/api/businesses/${businessId}/reviews`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+
+    if (response.ok) {
+        const newRev = await response.json()
+        dispatch(addReview(newRev))
+        return newRev
+    }
 }
 
 const initialState = { entries: [] }
 
-const reviewReducer = ( state = initialState, action ) => {
-    let newState
+const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_REVIEWS:
+            return { ...state, entries: [...action.payload.reviews]}
         case ADD_REVIEW:
+            return state;
         case DELETE_REVIEW:
+            return state;
+        default:
+            return state;
     }
 }
 
