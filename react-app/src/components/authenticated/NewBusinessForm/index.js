@@ -97,7 +97,7 @@ const NewBusinessForm = () => {
                         </label>
                     </div>
                     <div>
-                        <label className='new-business-label'> Zipcode (example: 30075)
+                        <label className='new-business-label'> Zipcode (five digits, example: 30075)
                             <input
                                 className='new-business-input'
                                 type='text'
