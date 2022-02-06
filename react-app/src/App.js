@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
+// Import non-auth components
 import LoginPage from './components/splash/Login';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import LogoutButton from './components/auth/LogoutButton';
 import SplashPage from './components/splash/SplashPage';
 import NewBusinessForm from './components/authenticated/NewBusinessForm';
+
+// Import auth components
+import HomeApp from './components/authenticated';
 import { authenticate } from './store/session';
+
+// Import states
 import { getAllBusinesses } from './store/business';
 import * as sessionActions from './store/session'
 
@@ -56,8 +63,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true}>
-          <h1>Hellmo</h1>
-          <LogoutButton />
+          <HomeApp />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
