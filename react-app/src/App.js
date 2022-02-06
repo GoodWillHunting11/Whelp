@@ -42,7 +42,7 @@ function App() {
       await dispatch(sessionActions.authenticate()).then(() => setLoaded(true));
       await dispatch(getAllBusinesses())
     })();
-  }, [loaded]);
+  }, [dispatch, loaded]);
 
   if (!user) {
     return (

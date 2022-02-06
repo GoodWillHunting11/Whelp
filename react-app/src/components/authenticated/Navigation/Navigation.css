@@ -3,6 +3,7 @@
     background-color: #de791b;
     height: 64px;
     z-index: 100;
+    position: relative;
 }
 
 .main-nav {

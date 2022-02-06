@@ -1,5 +1,6 @@
 const LOAD_BUSINESSES = 'businesses/LOAD'
 const ADD_BUSINESS = 'businesses/ADD'
+const DELETE_BUSINESS = 'businesses/DELETE'
 
 export const loadBusinesses = payload => {
     return {
@@ -15,6 +16,13 @@ export const addBusiness = payload => {
     }
 }
 
+export const deleteBusiness = deletedBusiness => {
+    return {
+        type: DELETE_BUSINESS,
+        deletedBusiness
+    }
+}
+
 export const getAllBusinesses = () => async dispatch => {
 
     const response = await fetch(`/api/businesses`, {
@@ -25,6 +33,17 @@ export const getAllBusinesses = () => async dispatch => {
         const businesses = await response.json()
         console.log('hello', businesses)
         dispatch(loadBusinesses(businesses))
+    }
+}
+
+export const removeBusiness = business => async dispatch => {
+    const response = await fetch(`/api/businesses/delete/${business}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        const deleted = await response.json()
+        dispatch(deleteBusiness(deleted))
     }
 }
 
@@ -73,6 +92,15 @@ const businessReducer = ( state = initialState, action ) => {
             return {...state, entries: [...action.payload['data']]}
         case ADD_BUSINESS:
             return {...state, entries: [...state.entries, action.payload]}
+        case DELETE_BUSINESS:
+            newState = { ...state }
+
+            let target = action.deletedBusiness.id
+            let removing = newState.entries.find(one => one.id === target)
+            let idx = newState.entries.indexOf(removing)
+            console.log('here', idx)
+            newState.entries.splice(idx, 1)
+            return newState
         default:
             return state
     }
