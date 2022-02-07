@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom'
-import { removeBusiness } from '../../../store/business'
+import { removeBusiness, getAllBusinesses } from '../../../store/business'
 import { getAllReviews, removeOneReview } from '../../../store/review'
 
 
@@ -17,6 +17,12 @@ const SingleBusiness = () => {
     const reviews = useSelector(state => state.reviewState.entries)
 
     const single = businesses.find(single => single.id === +id)
+
+    useEffect(() => {
+        (async() => {
+            await dispatch(getAllBusinesses())
+        })();
+    }, [dispatch])
 
     useEffect(() => {
         (async() => {
