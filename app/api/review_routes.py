@@ -10,12 +10,10 @@ review_routes = Blueprint('reviews', __name__)
 
 @review_routes.route('/', methods=['GET'])
 def get_reviews(business_id):
-    # form = ReviewForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
     reviews = Review.query.filter(Review.business_id == business_id).order_by(desc(Review.time_created)).all()
 
     return {'reviews': [review.to_dict() for review in reviews]}
-    # return render_template('test.html', form=form, business_id=business_id)
+
 
 @review_routes.route('/', methods=['POST'])
 def post_review(business_id):
@@ -70,4 +68,4 @@ def delete_review(business_id, review_id):
 
     db.session.commit()
 
-    return 'test delete'
+    return { 'msg': 'Successfully deleted'}

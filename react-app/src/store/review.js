@@ -24,10 +24,10 @@ export const editReview = payload => {
     }
 }
 
-export const deleteReview = reviewToDelete => {
+export const deleteReview = payload => {
     return {
         type: DELETE_REVIEW,
-        reviewToDelete
+        payload
     }
 }
 
@@ -78,9 +78,28 @@ export const editOneReview = payload => async dispatch => {
     }
 }
 
+export const removeOneReview = payload => async dispatch => {
+
+    const response = await fetch(`/api/businesses/${payload.businessId}/reviews/${payload.reviewToDeleteId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+
+    if (response.ok) {
+        const deleteMessage = await response.json()
+
+        dispatch(deleteReview(payload))
+        return deleteMessage
+    }
+}
+
 const initialState = { entries: [] }
 
 const reviewReducer = (state = initialState, action) => {
+    let newState
     switch (action.type) {
         case LOAD_REVIEWS:
             return { ...state, entries: [...action.payload.reviews]}
@@ -89,7 +108,16 @@ const reviewReducer = (state = initialState, action) => {
         case EDIT_REVIEW:
             return { ...state, entries: [...state.entries, action.payload]}
         case DELETE_REVIEW:
-            return state;
+            newState = { ...state }
+
+            let target = action.payload.reviewToDeleteId
+            let removing = newState.entries.find(review => review.id == target)
+            let idx = newState.entries.indexOf(removing)
+
+            let stateHalf1 = newState.entries.slice(0, idx)
+            let stateHalf2 = newState.entries.slice(idx + 1)
+
+            return { ...newState, entries: [...stateHalf1, ...stateHalf2] }
         default:
             return state;
     }

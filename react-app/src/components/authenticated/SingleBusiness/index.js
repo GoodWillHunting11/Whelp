@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link, Redirect } from 'react-router-dom'
 import { removeBusiness } from '../../../store/business'
-import { getAllReviews } from '../../../store/review'
+import { getAllReviews, removeOneReview } from '../../../store/review'
 
 
 import './SingleBusiness.css'
@@ -34,9 +34,13 @@ const SingleBusiness = () => {
     const handleDeleteReview = async (e) => {
         e.preventDefault()
 
-        console.log('test!')
+        let reviewToDeleteId = parseInt(e.target.id, 10)
+        const payload = {
+            reviewToDeleteId,
+            businessId: id
+        }
 
-        // const reviewToDelete = await dispatch(removeReview(reviewId))
+        await dispatch(removeOneReview(payload))
     }
 
     if(!single) {
@@ -67,7 +71,7 @@ const SingleBusiness = () => {
                     {user.id === review.user_id &&
                         <Link to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
                     {user.id === review.user_id &&
-                        <form onSubmit={handleDeleteReview}>
+                        <form onSubmit={handleDeleteReview} id={`${review.id}`}>
                             <button type="submit">Delete</button>
                         </form>}
                 </div>
