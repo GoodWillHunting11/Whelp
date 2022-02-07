@@ -5,8 +5,17 @@ from sqlalchemy import desc
 import json
 import datetime
 
-
 review_routes = Blueprint('reviews', __name__)
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(error)
+    return errorMessages
 
 @review_routes.route('/', methods=['GET'])
 def get_reviews(business_id):
@@ -30,6 +39,7 @@ def post_review(business_id):
             business_id = business_id,
         )
 
+
         new_photo = Photo(
             url = data["url"],
             user_id = data["userId"],
@@ -37,11 +47,14 @@ def post_review(business_id):
         )
 
         db.session.add(new_review)
-        db.session.add(new_photo)
+        if data["url"]:
+            db.session.add(new_photo)
 
         db.session.commit()
 
-    return data
+        return data
+
+    return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @review_routes.route('/<int:review_id>', methods=["PATCH"])
 def edit_review(business_id, review_id):
@@ -59,7 +72,9 @@ def edit_review(business_id, review_id):
 
         db.session.commit()
 
-    return data
+        return data
+
+    return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @review_routes.route('/<int:review_id>', methods=["DELETE"])
 def delete_review(business_id, review_id):
