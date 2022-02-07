@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import { GoogleMap } from 'react-google-maps'
+import { withScriptjs } from 'react-google-maps'
+import { withGoogleMap } from 'react-google-maps'
+import { Marker } from 'react-google-maps'
+import { InfoWindow } from 'react-google-maps'
 
 const WrappedMap = withScriptjs(withGoogleMap(Map))
 function Map() {
