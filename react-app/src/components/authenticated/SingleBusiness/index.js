@@ -80,7 +80,7 @@ const SingleBusiness = () => {
                     <div className='business-photos'>
                         <h2 className='business-photos-h2'>Photos</h2>
                         <div className='photo-bucket'>
-                            {single?.photos.map((photo, idx) => (
+                            {single?.photos?.map((photo, idx) => (
                                 <PhotoThumbnail key={idx} url={photo.url} />
                             ))}
                         </div>
