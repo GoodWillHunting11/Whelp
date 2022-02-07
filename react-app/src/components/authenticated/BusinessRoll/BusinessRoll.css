@@ -1,0 +1,78 @@
+.roll-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 10px;
+    margin: 15px;
+}
+
+
+.roll-no-pic {
+    width: 200px;
+    height: 200px;
+    background-image: url('../../../img/placeholder.png');
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.roll-pic {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.rating-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.roll-data {
+    display: grid;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.roll-title {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, .6);
+    font-weight: bold;
+}
+
+.roll-info{
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    margin-top: -10px;
+    margin-bottom: -5px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.roll-rating {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    color: rgba(0, 0, 0, .6);
+}
+
+.roll-more {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.roll-more-link {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    color: #3a92e3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.roll-head {
+    font-weight: bold;
+    color: #de791b;
+}
