@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, useHistory, Link, Redirect } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import { removeBusiness } from '../../../store/business'
 import { getAllReviews, removeOneReview } from '../../../store/review'
 
@@ -22,12 +22,12 @@ const SingleBusiness = () => {
         (async() => {
             await dispatch(getAllReviews(id))
         })();
-    }, [dispatch])
+    }, [dispatch, id])
 
     const handleDeleteBusiness = async (e) => {
         e.preventDefault()
 
-        const deleting = await dispatch(removeBusiness(id))
+        await dispatch(removeBusiness(id))
         history.push('/')
     }
 
@@ -77,7 +77,7 @@ const SingleBusiness = () => {
                 </div>
             ))}
             {single?.photos?.map((photo, idx) =>(
-                <img key={idx} src={photo.url}/>
+                <img alt="An adorable Whelp user's dog." key={idx} src={photo.url}/>
             ))}
         </div>
     )

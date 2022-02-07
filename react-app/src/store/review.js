@@ -111,7 +111,7 @@ const reviewReducer = (state = initialState, action) => {
             newState = { ...state }
 
             let target = action.payload.reviewToDeleteId
-            let removing = newState.entries.find(review => review.id == target)
+            let removing = newState.entries.find(review => review.id === target)
             let idx = newState.entries.indexOf(removing)
 
             let stateHalf1 = newState.entries.slice(0, idx)

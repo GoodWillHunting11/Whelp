@@ -8,10 +8,11 @@ const EditReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const params = useParams()
+    const reviewId = parseInt(params.reviewId, 10)
 
     const user = useSelector(state => state.session.user)
     const reviews = useSelector(state => state.reviewState.entries)
-    const currentReview = reviews.find(review => review.id == params.reviewId)
+    const currentReview = reviews.find(review => review.id === reviewId)
 
     if (currentReview) {
         localStorage.setItem('rating', currentReview.rating)
