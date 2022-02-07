@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @business_routes.route('/', methods=['GET'])
-# @login_required
+#@login_required
 def all_businesses():
     business_data = Business.query \
                                 .options(joinedload(Business.photos_business)) \
@@ -98,7 +98,7 @@ def get_reviews(reviews):
 
 
 @business_routes.route('/new', methods=['POST'])
-# @login_required
+#@login_required
 def create_business():
     data = request.json
     form = NewBusinessForm()
@@ -130,24 +130,28 @@ def to_dict(self):
     }
 
 @business_routes.route('/delete/<int:id>', methods=['DELETE'])
-# @login_required
+#@login_required
 def delete_business(id):
     remove = Business.query.get(id)
     db.session.delete(remove)
     db.session.commit()
     return to_dict(remove)
 
-@business_routes.route('/edit/<int:id>', methods=['PUT'])
-# @login_required
+@business_routes.route('/edit/<int:id>', methods=['PATCH'])
+#@login_required
 def patch_business(id):
     data = request.json
-    business = Business.query.get(id)
-    business.name = data['name']
-    business.address = data['address']
-    business.city = data['city']
-    business.state = data['state']
-    business.zipcode = data['zipcode']
-    business.phone = data['phone']
-    business.website = data['website']
-    db.session.commit()
-    return to_dict(business)
+    form = NewBusinessForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        business = Business.query.get(id)
+        business.name = data['name']
+        business.address = data['address']
+        business.city = data['city']
+        business.state = data['state']
+        business.zipcode = data['zipcode']
+        business.phone = data['phone']
+        business.website = data['website']
+        db.session.commit()
+        return to_dict(business)
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
