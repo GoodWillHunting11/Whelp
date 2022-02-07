@@ -59,48 +59,36 @@ const SingleBusiness = () => {
                     <div className='action-buttons'>
                         <Link className='action-button-photo' to=''>Add Photo</Link>
                         <Link className='action-button' to=''>See All Photos</Link>
+                        <Link className='action-button' to={`/businesses/${id}/reviews/new`}>Add a review</Link>
                         {user.role === 'admin' ? <button className='action-button' onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
                         {user.role === 'admin' ? <button className='action-button' >Edit Business</button>:<></>}
                     </div>
                     <div className='business-photos'>
                         <h2 className='business-photos-h2'>Photos</h2>
                     </div>
-
-                </div>
-                <div className='data--col-right'>
-
-                </div>
-            </div>
-            <div className='single-business-container'>
-                {user.role === 'admin' ? <button onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
-                {user.role === 'admin' ? <button>Edit Business</button>:<></>}
-                <p>{single?.name}</p>
-                <p>{single?.address}</p>
-                <p>{single?.city}</p>
-                <p>{single?.state}</p>
-                <p>{single?.zip}</p>
-                <p>{single?.phone}</p>
-                <p>{single?.website}</p>
-                {single?.categories?.map((cat, idx) => (
-                    <p key={idx}>{cat.category}</p>
-                ))}
-                <Link to={`/businesses/${id}/reviews/new`}>Add a review</Link>
-                {reviews.map((review, idx) => (
-                    <div key={idx}>
-                        <p>{review.rating}</p>
-                        <p>{review.review}</p>
-                        {user.id === review.user_id &&
-                            <Link to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
-                        {user.id === review.user_id &&
-                            <form onSubmit={handleDeleteReview} id={`${review.id}`}>
-                                <button type="submit">Delete</button>
-                            </form>}
+                    <div className='business-reviews'>
+                        {reviews.map((review, idx) => (
+                            <div className='individual-review' key={idx}>
+                                <p>{review.rating}</p>
+                                <p>{review.review}</p>
+                                <div className='review-buttons'>
+                                    {user.id === review.user_id &&
+                                        <Link className='action-button' to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
+                                    {user.id === review.user_id &&
+                                        <form onSubmit={handleDeleteReview} id={`${review.id}`}>
+                                            <button className='action-button' type="submit">Delete</button>
+                                        </form>}
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
-                {single?.photos?.map((photo, idx) =>(
-                    <img alt="An adorable Whelp user's dog." key={idx} src={photo.url}/>
-                ))}
+
+                </div>
+                <div className='data-col-right'>
+
+                </div>
             </div>
+
         </>
     )
 
