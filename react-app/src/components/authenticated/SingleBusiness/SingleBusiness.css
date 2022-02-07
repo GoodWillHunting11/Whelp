@@ -124,3 +124,9 @@
     padding-top: 15px;
     color: rgba(45,46,47,.6);
 }
+
+.photo-bucket {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

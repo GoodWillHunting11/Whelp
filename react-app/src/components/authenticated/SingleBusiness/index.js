@@ -4,7 +4,10 @@ import { useParams, useHistory, Link } from 'react-router-dom'
 import { removeBusiness, getAllBusinesses } from '../../../store/business'
 import { getAllReviews, removeOneReview } from '../../../store/review'
 
+// Import components
 import SingleHero from './Hero'
+import PhotoThumbnail from './Photos'
+
 import './SingleBusiness.css'
 
 
@@ -17,7 +20,7 @@ const SingleBusiness = () => {
     const reviews = useSelector(state => state.reviewState.entries)
 
     const single = businesses.find(single => single.id === +id)
-
+    console.log(single?.photos)
     const formatPhone = (number) => {
         return number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")
     }
@@ -76,6 +79,11 @@ const SingleBusiness = () => {
                     </div>
                     <div className='business-photos'>
                         <h2 className='business-photos-h2'>Photos</h2>
+                        <div className='photo-bucket'>
+                            {single?.photos.map((photo, idx) => (
+                                <PhotoThumbnail key={idx} url={photo.url} />
+                            ))}
+                        </div>
                     </div>
                     <div className='business-reviews'>
                         {reviews.map((review, idx) => (
