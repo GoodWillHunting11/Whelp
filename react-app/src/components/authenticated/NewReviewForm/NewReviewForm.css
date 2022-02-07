@@ -1,0 +1,101 @@
+.new-review-form-container {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    width: 60%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new-review-label {
+    display: block;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.new-review-input {
+    display: block;
+    margin-top: 10px;
+    max-width: 750px;
+    padding: 5px;
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
+#review-text {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    height: 200px;
+    resize: none;
+}
+
+.new-review-select {
+    display: block;
+    margin-top: 10px;
+    max-width: 757px;
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .5);
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+}
+
+.add-review-button {
+    color: rgba(255, 255 ,255, 1);
+    background-color: #3a92e3;
+    border: 2px solid #3a92e3;
+    transition: color .15s ease-in-out;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.add-review-button:hover {
+    background-color: #de791b;
+    border: 2px solid #de791b;
+    transition: .1s ease-in-out;
+}
+
+.rating {
+    display: inline-flex;
+    align-items: center;
+    width: 130px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 5px 0px;
+    position: relative;
+  }
+
+  .rating input {
+    display: none;
+  }
+
+  .rating > .star-label {
+    width: 10px;
+    height: 30px;
+    font-family: Arial;
+    font-size: 25px;
+    color: #fc0;
+  }
+
+  .rating .star-label::before {
+    content: '\2606';
+    line-height: 26px;
+  }
+
+  .rating input:checked ~ .star-label:before {
+    content:'\2605';
+  }

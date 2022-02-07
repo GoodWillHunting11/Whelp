@@ -85,6 +85,7 @@ def get_reviews(reviews):
     data = []
     for each in reviews:
          review_set = {
+             "id": each.id,
              "rating": each.rating,
              "review": each.review,
              "user_id": each.user_id,
