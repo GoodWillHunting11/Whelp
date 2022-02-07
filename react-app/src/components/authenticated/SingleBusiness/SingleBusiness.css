@@ -1,3 +1,65 @@
 .single-business-container {
     margin: 50px;
 }
+
+.data-col-container {
+    display: grid;
+    grid-template-columns: 4fr 2.5fr;
+    width: 69%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.action-buttons {
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    padding-bottom: 30px;
+}
+
+.business-photos-h2 {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    font-size: 20px;
+    color: rgba(45,46,47,1);
+}
+
+.action-button-photo {
+    color: white;
+    background-color: #3a92e3;
+    border: 2px solid #3a92e3;
+    transition: color .15s ease-in-out;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.action-button-photo:hover {
+    color: #3a92e3;
+    background-color: white;
+}
+
+.action-button {
+    color: #3a92e3;
+    background-color: white;
+    border: 2px solid #3a92e3;
+    transition: color .15s ease-in-out;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.action-button:hover {
+    color: white;
+    background-color: #3a92e3;
+}

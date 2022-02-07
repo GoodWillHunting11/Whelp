@@ -54,6 +54,23 @@ const SingleBusiness = () => {
     return (
         <>
             <SingleHero single={single} reviews={reviews} />
+            <div className='data-col-container'>
+                <div className='data-col-left'>
+                    <div className='action-buttons'>
+                        <Link className='action-button-photo' to=''>Add Photo</Link>
+                        <Link className='action-button' to=''>See All Photos</Link>
+                        {user.role === 'admin' ? <button className='action-button' onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
+                        {user.role === 'admin' ? <button className='action-button' >Edit Business</button>:<></>}
+                    </div>
+                    <div className='business-photos'>
+                        <h2 className='business-photos-h2'>Photos</h2>
+                    </div>
+
+                </div>
+                <div className='data--col-right'>
+
+                </div>
+            </div>
             <div className='single-business-container'>
                 {user.role === 'admin' ? <button onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
                 {user.role === 'admin' ? <button>Edit Business</button>:<></>}
