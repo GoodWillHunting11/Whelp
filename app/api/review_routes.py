@@ -1,6 +1,7 @@
 from flask import Blueprint, request, render_template
 from app.models import db, Review, Photo
 from app.forms import ReviewForm
+from sqlalchemy import desc
 import json
 import datetime
 
@@ -9,32 +10,30 @@ review_routes = Blueprint('reviews', __name__)
 
 @review_routes.route('/', methods=['GET'])
 def get_reviews(business_id):
-    # form = ReviewForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
-    reviews = Review.query.filter(Review.business_id == business_id).all()
+    reviews = Review.query.filter(Review.business_id == business_id).order_by(desc(Review.time_created)).all()
 
     return {'reviews': [review.to_dict() for review in reviews]}
-    # return render_template('test.html', form=form, business_id=business_id)
+
 
 @review_routes.route('/', methods=['POST'])
 def post_review(business_id):
+    data = request.json
     form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        print('in here')
-        data = form.data
 
         new_review = Review(
             rating = data["rating"],
             review = data["review"],
-            # user_id = data["user_id"],
-            # business_id = business_id,
+            user_id = data["userId"],
+            business_id = business_id,
         )
 
         new_photo = Photo(
             url = data["url"],
-            # user_id = data["user_id"],
-            # business_id = data["business_id"],
+            user_id = data["userId"],
+            business_id = business_id,
         )
 
         db.session.add(new_review)
@@ -42,12 +41,13 @@ def post_review(business_id):
 
         db.session.commit()
 
-    return 'test post'
+    return data
 
 @review_routes.route('/<int:review_id>', methods=["PATCH"])
 def edit_review(business_id, review_id):
     form = ReviewForm()
 
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit:
         data = json.loads(request.data)
 
@@ -59,7 +59,7 @@ def edit_review(business_id, review_id):
 
         db.session.commit()
 
-    return 'test patch'
+    return data
 
 @review_routes.route('/<int:review_id>', methods=["DELETE"])
 def delete_review(business_id, review_id):
@@ -67,4 +67,4 @@ def delete_review(business_id, review_id):
 
     db.session.commit()
 
-    return 'test delete'
+    return { 'msg': 'Successfully deleted' }
