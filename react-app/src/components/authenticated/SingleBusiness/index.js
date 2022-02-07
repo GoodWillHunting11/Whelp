@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link, Redirect } from 'react-router-dom'
 import { removeBusiness } from '../../../store/business'
 
-
+// Import states
+import { getAllBusinesses } from '../../../store/business'
 import './SingleBusiness.css'
 
 
@@ -14,6 +15,12 @@ const SingleBusiness = () => {
     const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
     const single = businesses.find(single => single.id === +id)
+
+    useEffect(() => {
+        (async() => {
+          await dispatch(getAllBusinesses())
+        })();
+      }, [dispatch]);
 
     const handleDelete = async (e) => {
         e.preventDefault()

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LogoutButton from '../../auth/LogoutButton'
+
+// Import states
+import { getAllBusinesses } from '../../../store/business'
 import './Navigation.css'
 
 
