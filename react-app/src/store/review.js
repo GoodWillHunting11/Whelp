@@ -82,6 +82,13 @@ export const editOneReview = payload => async dispatch => {
         const editedRev = await response.json()
         dispatch(editReview(editedRev))
         return editedRev
+    } else {
+        const data = await response.json()
+        if (data.errors) {
+            return { 'errors': data.errors };
+        } else {
+            return { 'errors': 'Something went wrong. Please try again.'}
+        }
     }
 }
 

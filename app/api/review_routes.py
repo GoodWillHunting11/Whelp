@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template
 from app.models import db, Review, Photo
-from app.forms import ReviewForm
+from app.forms import ReviewForm, EditReviewForm
 from sqlalchemy import desc
 import json
 import datetime
@@ -58,11 +58,11 @@ def post_review(business_id):
 
 @review_routes.route('/<int:review_id>', methods=["PATCH"])
 def edit_review(business_id, review_id):
-    form = ReviewForm()
-
+    data = request.json
+    form = EditReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit:
-        data = json.loads(request.data)
+
+    if form.validate_on_submit():
 
         review_to_update = Review.query.filter(Review.id == review_id).one()
 
