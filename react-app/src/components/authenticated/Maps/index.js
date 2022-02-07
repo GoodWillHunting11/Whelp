@@ -14,10 +14,11 @@ function Map() {
     const { id } = useParams()
     const businesses = useSelector(state => state.businessState.entries)
     const singleMap = businesses.find(single => single.id === +id)
-    console.log('Single Map', singleMap?.map[0])
 
     const [selectedBusiness, setSelectedBusiness] = useState(null)
-
+    if(!singleMap.map) {
+        return null
+    }
     return (
             <GoogleMap
             defaultZoom={9}

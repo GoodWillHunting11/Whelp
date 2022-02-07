@@ -13,11 +13,19 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(email, password))
     if (data) {
       setErrors(data);
     }
   };
+
+  const onDemo = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data)
+    }
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -32,46 +40,51 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='form-main'>
-    <form className='login-form' onSubmit={onLogin}>
-      <div className='title'>You need to log in to Whelp!</div>
-      <div className='subtitle'>New to Whelp? <Link className='sign-up-link' to='/signup'> Sign up here.</Link></div>
-      <div className='log-graph'>By logging in, you agree to Whelp's policy of petting puppies when they are good bois and good girls.</div>
-      <div className='subtitle'>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <>
+      <div className='form-main'>
+        <form className='login-form' onSubmit={onLogin}>
+          <div className='title'>You need to log in to Whelp!</div>
+          <div className='subtitle'>New to Whelp? <Link className='sign-up-link' to='/signup'> Sign up here.</Link></div>
+          <div className='log-graph'>By logging in, you agree to Whelp's policy of petting puppies when they are good bois and good girls.</div>
+          <div className='subtitle'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div className='label-container'>
+            <label htmlFor='email'>
+            <input
+              className='login-label'
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            />
+            </label>
+          </div>
+          <div className='label-container'>
+            <label htmlFor='password'>
+            <input
+              className='login-label'
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+            </label>
+            <div className='button-container'>
+              <button type='submit'>Login</button>
+            </div>
+            <div className='sign-up'><div className='i-need-a-damn-space'>New to Whelp?</div> <Link className='sign-up-link' to='/signup'> Sign up</Link></div>
+          </div>
+        </form>
+        <div className='button-container-demo'>
+              <button type='button' onClick={onDemo}>Demo User</button>
+          </div>
       </div>
-      <div className='label-container'>
-        <label htmlFor='email'>
-        <input
-          className='login-label'
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-        </label>
-      </div>
-      <div className='label-container'>
-        <label htmlFor='password'>
-        <input
-          className='login-label'
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        </label>
-        <div className='button-container'>
-          <button type='submit'>Login</button>
-        </div>
-        <div className='sign-up'><div className='i-need-a-damn-space'>New to Whelp?</div> <Link className='sign-up-link' to='/signup'> Sign up</Link></div>
-      </div>
-    </form>
-    </div>
+    </>
   );
 };
 
