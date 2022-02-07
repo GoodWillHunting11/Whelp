@@ -35,6 +35,7 @@ const BusinessRoll = ({biz}) => {
                     <div className='rating-container'>
                         <div class='roll-rating'><span className="stars" style={{"--rating": `${rating}`}}></span></div>
                         <div class='roll-more'><Link class='roll-more-link' to={`/businesses/${biz?.id}`}>MORE...</Link></div>
+
                     </div>
                 </div>
 
@@ -55,6 +56,7 @@ const BusinessRoll = ({biz}) => {
                 <div className='rating-container'>
                     <div class='roll-rating'><span className="stars" style={{"--rating": `${rating}`}}></span></div>
                     <div class='roll-more'><Link class='roll-more-link' to={`/businesses/${biz?.id}`}>MORE...</Link></div>
+
                 </div>
             </div>
 

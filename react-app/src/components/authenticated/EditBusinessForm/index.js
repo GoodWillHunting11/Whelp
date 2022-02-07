@@ -56,7 +56,7 @@ const EditBusinessForm = () => {
 
     if(!single) {
         return (
-            <h1>Loading</h1>
+            <h1 className='roll-heading'>Whelp! There's nothing here.</h1>
         )
     }
 
