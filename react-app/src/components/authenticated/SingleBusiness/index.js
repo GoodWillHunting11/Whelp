@@ -87,6 +87,7 @@ const SingleBusiness = () => {
                         </div>
                     </div>
                     <div className='business-reviews'>
+                    <h2 className='business-photos-h2'>Customer Reviews</h2>
                         {reviews.map((review, idx) => (
                             <div className='individual-review' key={idx}>
                                 <span className="stars" style={{"--rating": `${review.rating}`}}></span>
