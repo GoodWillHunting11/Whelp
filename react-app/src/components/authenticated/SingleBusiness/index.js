@@ -4,7 +4,7 @@ import { useParams, useHistory, Link } from 'react-router-dom'
 import { removeBusiness, getAllBusinesses } from '../../../store/business'
 import { getAllReviews, removeOneReview } from '../../../store/review'
 
-
+import SingleHero from './Hero'
 import './SingleBusiness.css'
 
 
@@ -17,6 +17,7 @@ const SingleBusiness = () => {
     const reviews = useSelector(state => state.reviewState.entries)
 
     const single = businesses.find(single => single.id === +id)
+    const title = single?.name
 
     useEffect(() => {
         (async() => {
@@ -51,37 +52,73 @@ const SingleBusiness = () => {
     }
 
     return (
-        <div className='single-business-container'>
-            {user.role === 'admin' ? <button onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
-            {user.role === 'admin' ? <button>Edit Business</button>:<></>}
-            <p>{single?.name}</p>
-            <p>{single?.address}</p>
-            <p>{single?.city}</p>
-            <p>{single?.state}</p>
-            <p>{single?.zip}</p>
-            <p>{single?.phone}</p>
-            <p>{single?.website}</p>
-            {single?.categories?.map((cat, idx) => (
-                <p key={idx}>{cat.category}</p>
-            ))}
-            <Link to={`/businesses/${id}/reviews/new`}>Add a review</Link>
-            {reviews.map((review, idx) => (
-                <div key={idx}>
-                    <p>{review.rating}</p>
-                    <p>{review.review}</p>
-                    {user.id === review.user_id &&
-                        <Link to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
-                    {user.id === review.user_id &&
-                        <form onSubmit={handleDeleteReview} id={`${review.id}`}>
-                            <button type="submit">Delete</button>
-                        </form>}
-                </div>
-            ))}
-            {single?.photos?.map((photo, idx) =>(
-                <img alt="An adorable Whelp user's dog." key={idx} src={photo.url}/>
-            ))}
-        </div>
+        <>
+            <SingleHero single={single} reviews={reviews} />
+            <div className='single-business-container'>
+                {user.role === 'admin' ? <button onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
+                {user.role === 'admin' ? <button>Edit Business</button>:<></>}
+                <p>{single?.name}</p>
+                <p>{single?.address}</p>
+                <p>{single?.city}</p>
+                <p>{single?.state}</p>
+                <p>{single?.zip}</p>
+                <p>{single?.phone}</p>
+                <p>{single?.website}</p>
+                {single?.categories?.map((cat, idx) => (
+                    <p key={idx}>{cat.category}</p>
+                ))}
+                <Link to={`/businesses/${id}/reviews/new`}>Add a review</Link>
+                {reviews.map((review, idx) => (
+                    <div key={idx}>
+                        <p>{review.rating}</p>
+                        <p>{review.review}</p>
+                        {user.id === review.user_id &&
+                            <Link to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
+                        {user.id === review.user_id &&
+                            <form onSubmit={handleDeleteReview} id={`${review.id}`}>
+                                <button type="submit">Delete</button>
+                            </form>}
+                    </div>
+                ))}
+                {single?.photos?.map((photo, idx) =>(
+                    <img alt="An adorable Whelp user's dog." key={idx} src={photo.url}/>
+                ))}
+            </div>
+        </>
     )
+
+    // return (
+    //     <div className='single-business-container'>
+    //         {user.role === 'admin' ? <button onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
+    //         {user.role === 'admin' ? <button>Edit Business</button>:<></>}
+    //         <p>{single?.name}</p>
+    //         <p>{single?.address}</p>
+    //         <p>{single?.city}</p>
+    //         <p>{single?.state}</p>
+    //         <p>{single?.zip}</p>
+    //         <p>{single?.phone}</p>
+    //         <p>{single?.website}</p>
+    //         {single?.categories?.map((cat, idx) => (
+    //             <p key={idx}>{cat.category}</p>
+    //         ))}
+    //         <Link to={`/businesses/${id}/reviews/new`}>Add a review</Link>
+    //         {reviews.map((review, idx) => (
+    //             <div key={idx}>
+    //                 <p>{review.rating}</p>
+    //                 <p>{review.review}</p>
+    //                 {user.id === review.user_id &&
+    //                     <Link to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
+    //                 {user.id === review.user_id &&
+    //                     <form onSubmit={handleDeleteReview} id={`${review.id}`}>
+    //                         <button type="submit">Delete</button>
+    //                     </form>}
+    //             </div>
+    //         ))}
+    //         {single?.photos?.map((photo, idx) =>(
+    //             <img alt="An adorable Whelp user's dog." key={idx} src={photo.url}/>
+    //         ))}
+    //     </div>
+    // )
 }
 
 export default SingleBusiness
