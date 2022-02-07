@@ -73,7 +73,7 @@ const SingleBusiness = () => {
                 <div className='data-col-left'>
                     <div className='action-buttons'>
                         <Link className='action-button-photo' to=''>Add Photo</Link>
-                        <Link className='action-button' to=''>See All Photos</Link>
+                        <Link className='action-button' to={`/businesses/${id}/photos`}>See All Photos</Link>
                         <Link className='action-button' to={`/businesses/${id}/reviews/new`}>Add a review</Link>
                         {user.role === 'admin' ? <button className='action-button' onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
                         {user.role === 'admin' ? <Link className='action-button' to={`/businesses/edit/${id}`} >Edit Business</Link>:<></>}
