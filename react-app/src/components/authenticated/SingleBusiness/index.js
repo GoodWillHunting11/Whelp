@@ -17,7 +17,7 @@ const SingleBusiness = () => {
     const reviews = useSelector(state => state.reviewState.entries)
 
     const single = businesses.find(single => single.id === +id)
-    const title = single?.name
+
 
     useEffect(() => {
         (async() => {
@@ -85,7 +85,12 @@ const SingleBusiness = () => {
 
                 </div>
                 <div className='data-col-right'>
-
+                    <div className='business-meta'>
+                        <div className='web'><a href={single.website} target="_blank" rel="noreferrer">{single.website}</a></div>
+                        <div className='phone'>{single.phone}</div>
+                        <div className='address'></div>
+                    </div>
+                    <div className='business-map'></div>
                 </div>
             </div>
 

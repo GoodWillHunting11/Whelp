@@ -80,3 +80,16 @@
 .review-buttons {
     display: flex;
 }
+
+.data-col-right {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+}
+
+.business-meta {
+    width: 350px;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 5px;
+    padding: 15px;
+}
