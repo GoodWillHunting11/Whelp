@@ -7,6 +7,8 @@ import { withGoogleMap } from 'react-google-maps'
 import { Marker } from 'react-google-maps'
 import { InfoWindow } from 'react-google-maps'
 
+import './Maps.css'
+
 const WrappedMap = withScriptjs(withGoogleMap(Map))
 function Map() {
     const { id } = useParams()
@@ -43,11 +45,11 @@ function Map() {
 
 const BusinessMap = () => {
     return(
-        <div style={{ width: '40vw', height: '50vh' }}>
+        <div className='google-map' style={{ width: '332px', height: '50vh' }}>
             <WrappedMap googleMapURL ={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBFE2JjLif0k10_tLpKkhSIC_XxoSOon3M'}
             loadingElement = { <div style={{ height: "100%" }}/>}
             containerElement = { <div style={{ height: "100%" }}/>}
-            mapElement = { <div style={{ height: "100%" }}/>}
+            mapElement = { <div className='google-map' style={{ height: "100%" }}/>}
             />
         </div>
     )
