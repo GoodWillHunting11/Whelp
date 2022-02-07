@@ -33,7 +33,7 @@ const BusinessRoll = ({biz}) => {
                     <p className="roll-info"><strong>Contact:</strong> {phone}</p>
                     <p className="roll-info"><strong>Address:</strong> {biz?.address} {biz?.city}, {biz?.state} {biz?.zipcode}</p>
                     <div className='rating-container'>
-                        <div class='roll-rating'><span className='roll-head'>Rating:</span> {rating}</div>
+                        <div class='roll-rating'><span className="stars" style={{"--rating": `${rating}`}}></span></div>
                         <div class='roll-more'><Link class='roll-more-link' to={`/businesses/${biz?.id}`}>MORE...</Link></div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ const BusinessRoll = ({biz}) => {
                 <p className="roll-info"><strong>Contact:</strong> {phone}</p>
                 <p className="roll-info"><strong>Address:</strong> {biz?.address} {biz?.city}, {biz?.state} {biz?.zipcode}</p>
                 <div className='rating-container'>
-                    <div class='roll-rating'><span className='roll-head'>Rating:</span> {rating}</div>
+                    <div class='roll-rating'><span className="stars" style={{"--rating": `${rating}`}}></span></div>
                     <div class='roll-more'><Link class='roll-more-link' to={`/businesses/${biz?.id}`}>MORE...</Link></div>
                 </div>
             </div>
