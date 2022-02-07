@@ -116,7 +116,7 @@ const EditReviewForm = () => {
                     </label>
                 </div>
                 <div>
-                    <button className='add-review-button' type='submit'>Add Review</button>
+                    <button className='add-review-button' type='submit'>Edit Review</button>
                 </div>
             </form>
         </div>
