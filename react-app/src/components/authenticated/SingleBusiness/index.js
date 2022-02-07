@@ -18,6 +18,15 @@ const SingleBusiness = () => {
 
     const single = businesses.find(single => single.id === +id)
 
+    const formatPhone = (number) => {
+        return number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")
+    }
+
+    let phone = '';
+
+    if(single) {
+        phone = formatPhone(single.phone)
+    }
 
     useEffect(() => {
         (async() => {
@@ -25,6 +34,8 @@ const SingleBusiness = () => {
             await dispatch(getAllReviews(id))
         })();
     }, [dispatch, id])
+
+
 
     const handleDeleteBusiness = async (e) => {
         e.preventDefault()
@@ -86,11 +97,19 @@ const SingleBusiness = () => {
                 </div>
                 <div className='data-col-right'>
                     <div className='business-meta'>
-                        <div className='web'><a href={single.website} target="_blank" rel="noreferrer">{single.website}</a></div>
-                        <div className='phone'>{single.phone}</div>
-                        <div className='address'></div>
+                        <div className='web'>
+                            <h3 className='meta-h3'>Website</h3>
+                            <a href={single.website} target="_blank" rel="noreferrer">{single.website}</a>
+                        </div>
+                        {phone ? <div className='phone'><h3 className='meta-h3'>Contact</h3>{phone}</div>:<></>}
+                        <div className='address'>
+                            <h3 className='meta-h3'>Address</h3>
+                            {single.address} {single.city}, {single.state} {single.zipcode}
+                        </div>
                     </div>
-                    <div className='business-map'></div>
+                    <div className='business-map'>
+
+                    </div>
                 </div>
             </div>
 
