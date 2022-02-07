@@ -7,6 +7,7 @@ import { getAllReviews, removeOneReview } from '../../../store/review'
 // Import components
 import SingleHero from './Hero'
 import PhotoThumbnail from './Photos'
+import BusinessMap from '../Maps'
 
 import './SingleBusiness.css'
 
@@ -116,7 +117,7 @@ const SingleBusiness = () => {
                         </div>
                     </div>
                     <div className='business-map'>
-
+                        <BusinessMap />
                     </div>
                 </div>
             </div>

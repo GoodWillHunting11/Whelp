@@ -49,6 +49,5 @@ const BusinessMap = () => {
     )
 }
 
-{/* <BusinessMap /> */}
-// import BusinessMap from '../Maps'
+
 export default BusinessMap
