@@ -61,6 +61,9 @@ function App() {
           <Route path='/signup' exact={true}>
             <LoginPage page='signup' />
           </Route>
+          <Route>
+            <h1 className='roll-heading'>Whelp! There's nothing here.</h1>
+          </Route>
         </Switch>
       </BrowserRouter>
     )
@@ -95,7 +98,7 @@ function App() {
               <EditReviewForm />
           </Route>
           <Route>
-              Whelp! There's nothing here.
+            <h1 className='roll-heading'>Whelp! There's nothing here.</h1>
           </Route>
         </Switch>
       <Footer />

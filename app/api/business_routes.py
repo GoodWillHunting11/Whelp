@@ -17,7 +17,6 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @business_routes.route('/', methods=['GET'])
-#@login_required
 def all_businesses():
     business_data = Business.query \
                                 .options(joinedload(Business.photos_business)) \
@@ -98,7 +97,6 @@ def get_reviews(reviews):
 
 
 @business_routes.route('/new', methods=['POST'])
-#@login_required
 def create_business():
     data = request.json
     form = NewBusinessForm()
@@ -130,7 +128,6 @@ def to_dict(self):
     }
 
 @business_routes.route('/delete/<int:id>', methods=['DELETE'])
-#@login_required
 def delete_business(id):
     remove = Business.query.get(id)
     db.session.delete(remove)
@@ -138,7 +135,6 @@ def delete_business(id):
     return to_dict(remove)
 
 @business_routes.route('/edit/<int:id>', methods=['PATCH'])
-#@login_required
 def patch_business(id):
     data = request.json
     form = NewBusinessForm()
