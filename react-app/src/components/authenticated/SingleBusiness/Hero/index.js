@@ -2,6 +2,11 @@ import './HeroSingle.css'
 import logo from '../../../../img/splash-logo.png'
 
 const SingleHero  = ({single, reviews}) => {
+    if(!single.categories) {
+        return (
+            <h1>Loading</h1>
+        )
+    }
     return (
         <div className='single-hero-container'>
             <div className='single-hero-content'>
