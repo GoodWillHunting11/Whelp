@@ -21,11 +21,6 @@ const SingleBusiness = () => {
     useEffect(() => {
         (async() => {
             await dispatch(getAllBusinesses())
-        })();
-    }, [dispatch])
-
-    useEffect(() => {
-        (async() => {
             await dispatch(getAllReviews(id))
         })();
     }, [dispatch, id])
