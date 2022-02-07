@@ -10,6 +10,7 @@ import LogoutButton from './components/auth/LogoutButton';
 import SplashPage from './components/splash/SplashPage';
 import NewBusinessForm from './components/authenticated/NewBusinessForm';
 import NewReviewForm from './components/authenticated/NewReviewForm';
+import EditReviewForm from './components/authenticated/EditReviewForm';
 
 // Import auth components
 import HomeApp from './components/authenticated';
@@ -85,6 +86,9 @@ function App() {
           </Route>
           <Route path='/businesses/:id/reviews/new' exact={true}>
               <NewReviewForm />
+          </Route>
+          <Route path='/businesses/:id/reviews/:reviewId/edit' exact={true}>
+              <EditReviewForm />
           </Route>
           <Route>
               Whelp! There's nothing here.

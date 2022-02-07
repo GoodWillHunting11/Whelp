@@ -14,6 +14,8 @@ const SingleBusiness = () => {
     const { id } = useParams()
     const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
+    const reviews = useSelector(state => state.reviewState.entries)
+
     const single = businesses.find(single => single.id === +id)
 
     useEffect(() => {
@@ -22,11 +24,19 @@ const SingleBusiness = () => {
         })();
     }, [dispatch])
 
-    const handleDelete = async (e) => {
+    const handleDeleteBusiness = async (e) => {
         e.preventDefault()
 
         const deleting = await dispatch(removeBusiness(id))
         history.push('/')
+    }
+
+    const handleDeleteReview = async (e) => {
+        e.preventDefault()
+
+        console.log('test!')
+
+        // const reviewToDelete = await dispatch(removeReview(reviewId))
     }
 
     if(!single) {
@@ -37,7 +47,7 @@ const SingleBusiness = () => {
 
     return (
         <div className='single-business-container'>
-            {user.role === 'admin' ? <button onClick={handleDelete}>Delete Business</button>:<></>}
+            {user.role === 'admin' ? <button onClick={handleDeleteBusiness}>Delete Business</button>:<></>}
             {user.role === 'admin' ? <button>Edit Business</button>:<></>}
             <p>{single?.name}</p>
             <p>{single?.address}</p>
@@ -49,10 +59,17 @@ const SingleBusiness = () => {
             {single?.categories?.map((cat, idx) => (
                 <p key={idx}>{cat.category}</p>
             ))}
-            {single?.reviews?.map((review, idx) => (
+            <Link to={`/businesses/${id}/reviews/new`}>Add a review</Link>
+            {reviews.map((review, idx) => (
                 <div key={idx}>
                     <p>{review.rating}</p>
                     <p>{review.review}</p>
+                    {user.id === review.user_id &&
+                        <Link to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
+                    {user.id === review.user_id &&
+                        <form onSubmit={handleDeleteReview}>
+                            <button type="submit">Delete</button>
+                        </form>}
                 </div>
             ))}
             {single?.photos?.map((photo, idx) =>(

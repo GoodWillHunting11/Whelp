@@ -1,40 +1,45 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
-import { newReview } from '../../../store/review';
-import './NewReviewForm.css'
+import { editOneReview } from '../../../store/review';
+import './EditReviewForm.css'
 
-const NewReviewForm = () => {
+const EditReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const params = useParams()
 
     const user = useSelector(state => state.session.user)
+    const reviews = useSelector(state => state.reviewState.entries)
+    const currentReview = reviews.find(review => review.id == params.reviewId)
+
+    if (currentReview) {
+        localStorage.setItem('rating', currentReview.rating)
+        localStorage.setItem('review', currentReview.review)
+    }
 
     const [errors, setErrors] = useState([]);
-    const [rating, setRating] = useState(0);
-    const [review, setReview] = useState("");
-    const [url, setUrl] = useState("");
+    const [rating, setRating] = useState(localStorage.getItem('rating'));
+    const [review, setReview] = useState(localStorage.getItem('review'));
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const payload = {
-            rating: parseInt(rating),
+            id: parseInt(params.reviewId, 10),
+            rating: parseInt(rating, 10),
             review,
-            url,
             businessId: params.id,
             userId: user.id
         }
 
-        const newRev = await dispatch(newReview(payload))
-        console.log(newRev)
+        const editedRev = await dispatch(editOneReview(payload))
 
-        if (newRev.errors) {
-            setErrors(newRev.errors)
+        if (editedRev.errors) {
+            setErrors(editedRev.errors)
         }
-        else if (!newRev.errors) {
-            history.push(`/businesses/${newRev.businessId}`)
+        else if (!editedRev.errors) {
+            history.push(`/businesses/${editedRev.businessId}`)
         }
 
     }
@@ -55,6 +60,7 @@ const NewReviewForm = () => {
                             name="stars"
                             id="star-1"
                             value="5"
+                            defaultChecked={rating == 5}
                         />
                         <label className="star star-1 star-label" htmlFor="star-1"></label>
                         <input
@@ -63,6 +69,7 @@ const NewReviewForm = () => {
                             name="stars"
                             id="star-2"
                             value="4"
+                            defaultChecked={rating == 4}
                         />
                         <label className="star star-2 star-label" htmlFor="star-2"></label>
                         <input
@@ -71,6 +78,7 @@ const NewReviewForm = () => {
                             name="stars"
                             id="star-3"
                             value="3"
+                            defaultChecked={rating == 3}
                         />
                         <label className="star star-3 star-label" htmlFor="star-3"></label>
                         <input
@@ -79,6 +87,7 @@ const NewReviewForm = () => {
                             name="stars"
                             id="star-4"
                             value="2"
+                            defaultChecked={rating == 2}
                         />
                         <label className="star star-4 star-label" htmlFor="star-4"></label>
                         <input
@@ -87,6 +96,7 @@ const NewReviewForm = () => {
                             name="stars"
                             id="star-5"
                             value="1"
+                            defaultChecked={rating == 1}
                         />
                         <label className="star star-5 star-label" htmlFor="star-5"></label>
                 </div>
@@ -105,18 +115,6 @@ const NewReviewForm = () => {
                     </label>
                 </div>
                 <div>
-                    <label className="new-review-label"> Picture
-                        <input
-                            className="new-review-input"
-                            type="text"
-                            value={url}
-                            onChange={e => setUrl(e.target.value)}
-                            autoComplete='off'
-                            placeholder="Image URL"
-                        />
-                    </label>
-                </div>
-                <div>
                     <button className='add-review-button' type='submit'>Add Review</button>
                 </div>
             </form>
@@ -124,4 +122,4 @@ const NewReviewForm = () => {
     )
 }
 
-export default NewReviewForm
+export default EditReviewForm

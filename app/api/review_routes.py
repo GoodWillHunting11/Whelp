@@ -1,6 +1,7 @@
 from flask import Blueprint, request, render_template
 from app.models import db, Review, Photo
 from app.forms import ReviewForm
+from sqlalchemy import desc
 import json
 import datetime
 
@@ -11,7 +12,7 @@ review_routes = Blueprint('reviews', __name__)
 def get_reviews(business_id):
     # form = ReviewForm()
     # form['csrf_token'].data = request.cookies['csrf_token']
-    reviews = Review.query.filter(Review.business_id == business_id).all()
+    reviews = Review.query.filter(Review.business_id == business_id).order_by(desc(Review.time_created)).all()
 
     return {'reviews': [review.to_dict() for review in reviews]}
     # return render_template('test.html', form=form, business_id=business_id)
@@ -46,10 +47,12 @@ def post_review(business_id):
 
 @review_routes.route('/<int:review_id>', methods=["PATCH"])
 def edit_review(business_id, review_id):
+    print('do i make it to backend edit route')
     form = ReviewForm()
 
     if form.validate_on_submit:
         data = json.loads(request.data)
+        print(data)
 
         review_to_update = Review.query.filter(Review.id == review_id).one()
 
@@ -59,7 +62,7 @@ def edit_review(business_id, review_id):
 
         db.session.commit()
 
-    return 'test patch'
+    return data
 
 @review_routes.route('/<int:review_id>', methods=["DELETE"])
 def delete_review(business_id, review_id):

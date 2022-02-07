@@ -1,5 +1,6 @@
 const LOAD_REVIEWS = 'reviews/LOAD'
 const ADD_REVIEW = 'reviews/ADD'
+const EDIT_REVIEW = 'reviews/EDIT'
 const DELETE_REVIEW = 'reviews/DELETE'
 
 export const loadReviews = payload => {
@@ -12,6 +13,13 @@ export const loadReviews = payload => {
 export const addReview = payload => {
     return {
         type: ADD_REVIEW,
+        payload
+    }
+}
+
+export const editReview = payload => {
+    return {
+        type: EDIT_REVIEW,
         payload
     }
 }
@@ -46,10 +54,27 @@ export const newReview = (payload) => async dispatch => {
 
     if (response.ok) {
         const newRev = await response.json()
-        console.log(newRev)
 
         dispatch(addReview(newRev))
         return newRev
+    }
+}
+
+export const editOneReview = payload => async dispatch => {
+
+    const response = await fetch(`/api/businesses/${payload.businessId}/reviews/${payload.id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+
+
+    if (response.ok) {
+        const editedRev = await response.json()
+        dispatch(editReview(editedRev))
+        return editedRev
     }
 }
 
@@ -60,7 +85,9 @@ const reviewReducer = (state = initialState, action) => {
         case LOAD_REVIEWS:
             return { ...state, entries: [...action.payload.reviews]}
         case ADD_REVIEW:
-            return { ...state, entries: []}
+            return { ...state, entries: [...state.entries, action.payload]}
+        case EDIT_REVIEW:
+            return { ...state, entries: [...state.entries, action.payload]}
         case DELETE_REVIEW:
             return state;
         default:
