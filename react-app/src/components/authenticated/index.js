@@ -17,6 +17,7 @@ const HomeApp = () => {
     return (
             <>
                 <HeroImage />
+                <h1 className='roll-heading'>Your Next Review Awaits</h1>
                 <div className='business-roll'>
                     {businesses.map((biz, idx) => (
                         <BusinessRoll biz={biz} key={idx} />
