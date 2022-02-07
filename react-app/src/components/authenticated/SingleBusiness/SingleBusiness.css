@@ -128,5 +128,4 @@
 .photo-bucket {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
