@@ -62,7 +62,7 @@ const SingleBusiness = () => {
 
     if(!single) {
         return (
-            <p className='nope'>Nope. There's nothing here.</p>
+            <h1 className='roll-heading'>Whelp! There's nothing here.</h1>
         )
     }
 
