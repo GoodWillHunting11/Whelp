@@ -82,14 +82,14 @@
 }
 
 .data-col-right {
-    display: grid;
-    justify-content: center;
+    display: block;
     width: 100%;
 }
 
 .business-meta {
-    width: 350px;
+    width: 300px;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 5px;
     padding: 15px;
+    margin: auto;
 }
