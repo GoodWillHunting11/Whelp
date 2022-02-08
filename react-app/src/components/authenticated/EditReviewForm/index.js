@@ -53,11 +53,16 @@ const EditReviewForm = () => {
     return (
         <div className='new-review-form-container'>
             <form onSubmit={handleSubmit}>
-                <div>
+            <h1 className='new-review-h1'>Edit your review</h1>
+                {errors.length ?
+                <div className="error-container">
+                    <ul>
                     {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
+                        <li key={ind}>{error}</li>
                     ))}
+                    </ul>
                 </div>
+                :<></>}
                 <label className="new-review-label" htmlFor="rating"> Rating
                 <div className="rating" id="rating" onChange={e => setRating(e.target.value)}>
                         <input

@@ -1,11 +1,8 @@
 .individual-review {
-    margin-bottom: 35px;
+    margin-bottom: 45px;
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
     font-size: 14px;
-}
-
-.review-buttons-container {
-    display: flex;
+    position: relative;
 }
 
 .stars {
@@ -14,8 +11,6 @@
     font-family: Times;
     line-height: 1;
     justify-content: center;
-    position: relative;
-    right: 3px;
   }
 
 .stars::before {
@@ -28,55 +23,23 @@
       color: transparent;
 }
 
-.review-button:hover {
-    color: white;
-    background-color: #3a92e3;
+.review-stars {
+    position: relative;
+    right: 4px;
 }
 
 .review-user {
     margin: 0 0 5px 0;
-    width: 50px;
+    width: 10px;
     font-weight: bold;
     font-size: 16px;
 }
 
 .review-message {
-    margin: 8px 0 20px 0;
+    margin: 15px 0 20px 0;
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
-}
-
-@media screen and (min-width: 800px) {
-    .review-button {
-        color: #3a92e3;
-        background-color: white;
-        border: 2px solid #3a92e3;
-        /* transition: color .15s ease-in-out; */
-        font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
-        box-sizing: border-box;
-        padding: 10px 10px;
-        font-size: 14px;
-        font-weight: 600;
-        text-align: center;
-        border-radius: 5px;
-        text-decoration: none;
-        margin-right: 5px;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .review-button {
-        color: #3a92e3;
-        background-color: white;
-        border: 2px solid #3a92e3;
-        /* transition: color .15s ease-out; */
-        font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
-        box-sizing: border-box;
-        padding: 5px 5px;
-        font-size: 12px;
-        font-weight: 600;
-        text-align: center;
-        border-radius: 5px;
-        text-decoration: none;
-        margin-right: 5px;
-    }
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+    width: 90%;
 }
