@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from app.models import db, Photo
-# from flask_login import current_user, login_required
+from flask_login import current_user, login_required
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
@@ -11,7 +11,7 @@ def index():
     return "hello"
 
 @photo_routes.route("/new", methods=["POST"])
-# @login_required
+@login_required
 def upload_image():
 
     data = request.json
