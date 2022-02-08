@@ -7,6 +7,24 @@
     margin-right: auto;
 }
 
+.new-review-h1 {
+  font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+  margin: 0px;
+  color: #3a92e3;
+}
+
+.error-container {
+  margin-top: 10px;
+  border: 2px solid #cc8282;
+  border-radius: 3px;
+  background-color: #FFCCCC;
+}
+
+.error-container li {
+  color: red;
+  margin: 0px;
+}
+
 .new-review-label {
     display: block;
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
@@ -60,6 +78,7 @@
     align-items: center;
     border-radius: 5px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .add-review-button:hover {
@@ -87,6 +106,7 @@
     font-family: Arial;
     font-size: 22px;
     color: #fc0;
+    cursor: pointer;
   }
 
   .rating .star-label::before {
@@ -116,16 +136,21 @@
     border-radius: 5px;
     text-decoration: none;
     margin-left: 6px;
+    cursor: pointer;
   }
 
   .cancel-review-button:hover {
-
     text-decoration: underline;
-
   }
 
   .buttons-container {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
+  }
+
+  .new-review-header {
+    display: inline;
+    height: 50px;
+    width: 100px;
   }
