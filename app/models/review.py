@@ -23,5 +23,5 @@ class Review(db.Model):
             'user_id': self.user_id,
             'business_id': self.business_id,
             'time_created': self.time_created,
-            'time_updated': self.time_updated
+            'time_updated': self.time_updated,
         }

@@ -42,8 +42,13 @@ const EditReviewForm = () => {
         else if (!editedRev.errors) {
             history.push(`/businesses/${editedRev.businessId}`)
         }
-
     }
+
+    const handleCancel = e => {
+        e.preventDefault()
+        history.push(`/businesses/${params.id}`)
+    }
+
 
     return (
         <div className='new-review-form-container'>
@@ -115,8 +120,10 @@ const EditReviewForm = () => {
                         />
                     </label>
                 </div>
-                <div>
+                <div className='buttons-container'>
                     <button className='add-review-button' type='submit'>Edit Review</button>
+
+                    <button className='cancel-review-button' type='button' onClick={handleCancel}>Cancel</button>
                 </div>
             </form>
         </div>

@@ -37,6 +37,7 @@ export const getAllReviews = businessId => async dispatch => {
 
     if (response.ok) {
         const reviews = await response.json()
+        console.log(reviews)
         dispatch(loadReviews(reviews))
         return reviews
     }
@@ -118,9 +119,13 @@ const reviewReducer = (state = initialState, action) => {
         case LOAD_REVIEWS:
             return { ...state, entries: [...action.payload.reviews]}
         case ADD_REVIEW:
-            return { ...state, entries: [...state.entries, action.payload]}
+            newState = { ...state }
+
+            return { ...newState }
         case EDIT_REVIEW:
-            return { ...state, entries: [...state.entries, action.payload]}
+            newState = { ...state }
+
+            return { ...newState }
         case DELETE_REVIEW:
             newState = { ...state }
 

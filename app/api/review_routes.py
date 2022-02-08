@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template
 from app.models import db, Review, Photo
 from app.forms import ReviewForm, EditReviewForm
 from sqlalchemy import desc
+from sqlalchemy.orm import joinedload
 import json
 import datetime
 
@@ -19,9 +20,9 @@ def validation_errors_to_error_messages(validation_errors):
 
 @review_routes.route('/', methods=['GET'])
 def get_reviews(business_id):
-    reviews = Review.query.filter(Review.business_id == business_id).order_by(desc(Review.time_created)).all()
+    reviews = Review.query.options(joinedload(Review.user)).filter(Review.business_id == business_id).order_by(desc(Review.time_created)).all()
 
-    return {'reviews': [review.to_dict() for review in reviews]}
+    return {'reviews': [{ **review.to_dict(), 'user': review.user.to_dict() } for review in reviews]}
 
 
 @review_routes.route('/', methods=['POST'])
@@ -38,7 +39,6 @@ def post_review(business_id):
             user_id = data["userId"],
             business_id = business_id,
         )
-
 
         new_photo = Photo(
             url = data["url"],
@@ -58,6 +58,7 @@ def post_review(business_id):
 
 @review_routes.route('/<int:review_id>', methods=["PATCH"])
 def edit_review(business_id, review_id):
+    print('do i make it do edit roteffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', review_id)
     data = request.json
     form = EditReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
