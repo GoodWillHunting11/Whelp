@@ -4,6 +4,11 @@ import { useHistory, useParams } from 'react-router-dom';
 import { editOneReview } from '../../../store/review';
 import './EditReviewForm.css'
 
+// Import pics
+import bath from '../../../img/bath.png'
+import stroller from '../../../img/stroller.png'
+import walker from '../../../img/walker.png'
+
 const EditReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -131,6 +136,9 @@ const EditReviewForm = () => {
                     <button className='cancel-review-button' type='button' onClick={handleCancel}>Cancel</button>
                 </div>
             </form>
+            <div className='add-business-pics'>
+            <img className='icon-pics' id='review-pic' src={stroller} alt='Puppy in a stroller'/>
+            </div>
         </div>
     )
 }

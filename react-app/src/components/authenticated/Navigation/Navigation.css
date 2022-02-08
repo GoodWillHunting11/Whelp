@@ -28,12 +28,11 @@
     font-weight: 600;
     height: 33px;
     text-align: center;
-    display: flex;
+    display: block;
     align-items: center;
     border-radius: 5px;
     margin-left: 5px;
     text-decoration: none;
-
 }
 
 .logout-button:hover {

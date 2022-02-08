@@ -154,3 +154,9 @@
     height: 50px;
     width: 100px;
   }
+
+  #review-pic {
+    position: relative;
+    top: 25px;
+    left: 10px;
+  }

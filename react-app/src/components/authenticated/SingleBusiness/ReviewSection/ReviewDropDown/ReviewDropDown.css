@@ -27,11 +27,11 @@
     max-height: 0;
     transition: opacity 0.1s, z-index 0.1s, max-height 5s;
     position: relative;
-    right: 75px;
+    right: 79px;
     top: 10px;
     width: 100px;
-    background-color: #ffbe827e;
-    border: 2px solid #de791b;
+    background-color: #60a3e213;
+    border: 2px solid #3a92e3;
     border-radius: 3px;
     display: flex;
     flex-direction: column;
@@ -41,8 +41,8 @@
 .review-button {
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
     padding: 3px 5px;
-    font-weight: bold;
-    color: rgba(45,46,47,1);
+    font-weight: 600;
+    color: #3a92e3;
     border: transparent;
     background-color: transparent;
     text-decoration: none;
