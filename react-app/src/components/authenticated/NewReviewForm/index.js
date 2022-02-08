@@ -34,9 +34,13 @@ const NewReviewForm = () => {
             setErrors(newRev.errors)
         }
         else if (!newRev.errors) {
-            history.push(`/businesses/${newRev.businessId}`)
+            history.push(`/businesses/${params.id}`)
         }
+    }
 
+    const handleCancel = e => {
+        e.preventDefault()
+        history.push(`/businesses/${params.id}`)
     }
 
     return (
@@ -116,8 +120,10 @@ const NewReviewForm = () => {
                         />
                     </label>
                 </div>
-                <div>
+                <div className='buttons-container'>
                     <button className='add-review-button' type='submit'>Add Review</button>
+
+                    <button className='cancel-review-button' type='button' onClick={handleCancel}>Cancel</button>
                 </div>
             </form>
         </div>

@@ -56,11 +56,10 @@
     font-weight: 600;
     height: 40px;
     text-align: center;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     border-radius: 5px;
     text-decoration: none;
-    margin-top: 20px;
 }
 
 .add-review-button:hover {
@@ -75,8 +74,7 @@
     width: 130px;
     flex-direction: row-reverse;
     justify-content: space-between;
-    margin: 5px 0px;
-    position: relative;
+    margin: 0px 0px 0px 7px;
   }
 
   .rating input {
@@ -87,7 +85,7 @@
     width: 10px;
     height: 30px;
     font-family: Arial;
-    font-size: 25px;
+    font-size: 22px;
     color: #fc0;
   }
 
@@ -98,4 +96,36 @@
 
   .rating input:checked ~ .star-label:before {
     content:'\2605';
+  }
+
+  .cancel-review-button {
+    display: inline;
+    color: #de791b;
+    background-color: white;
+    border: transparent;
+    transition: color .15s ease-in-out;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 6px;
+  }
+
+  .cancel-review-button:hover {
+
+    text-decoration: underline;
+
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
   }
