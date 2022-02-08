@@ -4,7 +4,7 @@
 
 .embed-map {
     width: 332px;
-    border: none;
+    border: 1px solid rgba(0,0,0,.1);
     height: 500px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
