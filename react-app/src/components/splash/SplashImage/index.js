@@ -21,12 +21,9 @@ function SplashImage() {
                 <div className='splash-form-container'>
                     <form className='splash-search' >
                             <label  htmlFor="search" >
-                                <input className='splash-search' id="search" placeholder='Find'>
+                                <input className='splash-search-input' id="search" placeholder='Find'>
 
                                 </input>
-                            </label>
-                            <label  htmlFor="location" >
-                                <input className='location-search' id="location" placeholder='Near'></input>
                             </label>
                             <button className='splash-submit' onClick={handleForm}><FontAwesomeIcon icon={faPaw} className='fa-paw' /></button>
                             <div className='splash-links-container'>
