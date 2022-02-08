@@ -76,5 +76,7 @@ input[type='file'] {
 }
 
 .upload-pic {
-    width:100%;
+    max-width: 408px;
+    width: 100%;
+    margin: auto;
 }
