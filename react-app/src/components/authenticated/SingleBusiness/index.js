@@ -8,6 +8,7 @@ import { getAllReviews, removeOneReview } from '../../../store/review'
 import SingleHero from './Hero'
 import PhotoThumbnail from './Photos'
 import BusinessMap from '../Maps'
+import ReviewSection from './ReviewSection'
 
 import './SingleBusiness.css'
 
@@ -86,25 +87,7 @@ const SingleBusiness = () => {
                             ))}
                         </div>
                     </div>
-                    <div className='business-reviews'>
-                    <h2 className='business-photos-h2'>Customer Reviews</h2>
-                        {reviews.map((review, idx) => (
-                            <div className='individual-review' key={idx}>
-                                <p>{review.user.username}</p>
-                                <span className="stars" style={{"--rating": `${review.rating}`}}></span>
-                                <p>{review.review}</p>
-                                <div className='review-buttons'>
-                                    {user.id === review.user_id &&
-                                        <Link className='action-button' to={`/businesses/${id}/reviews/${review.id}/edit`}>Edit your review</Link>}
-                                    {user.id === review.user_id &&
-                                        <form onSubmit={handleDeleteReview} id={`${review.id}`}>
-                                            <button className='action-button' type="submit">Delete</button>
-                                        </form>}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
+                    <ReviewSection user={user} id={id} reviews={reviews} handleDeleteReview={handleDeleteReview}/>
                 </div>
                 <div className='data-col-right'>
                     <div className='business-meta'>
