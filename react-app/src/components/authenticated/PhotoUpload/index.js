@@ -9,6 +9,7 @@ const UploadPicture = () => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
     const [photo, setPhoto] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    const [selectImage, setSelectImage] = useState(false)
     const { id } = useParams()
     const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
@@ -46,6 +47,7 @@ const UploadPicture = () => {
     const updateImage = (e) => {
         const file = e.target.files[0];
         setPhoto(file);
+        setSelectImage(true)
     }
 
     if(!single) {
@@ -74,7 +76,7 @@ const UploadPicture = () => {
                     onChange={updateImage}
                     />
                     </label>
-                    <button className='file-upload-button' type="submit">Upload</button>
+                    {selectImage === true ? <button className='file-upload-button' type="submit">Upload Photo</button>:<button className='file-upload-button' type="submit" disabled>Please Select a File</button> }
                     {(imageLoading)&& <p>Loading...</p>}
                 </form>
             </div>
