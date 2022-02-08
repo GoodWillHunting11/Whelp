@@ -1,59 +1,24 @@
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { GoogleMap } from 'react-google-maps'
-import { withScriptjs } from 'react-google-maps'
-import { withGoogleMap } from 'react-google-maps'
-import { Marker } from 'react-google-maps'
-import { InfoWindow } from 'react-google-maps'
 
 import './Maps.css'
 
-const WrappedMap = withScriptjs(withGoogleMap(Map))
-function Map() {
+let environment = process.env.REACT_APP_GOOGLE_MAP
+
+const BusinessMap = () => {
     const { id } = useParams()
     const businesses = useSelector(state => state.businessState.entries)
     const singleMap = businesses.find(single => single.id === +id)
-
-    const [selectedBusiness, setSelectedBusiness] = useState(null)
-    if(!singleMap.map) {
-        return null
-    }
+    console.log('here is your map', singleMap)
     return (
-            <GoogleMap
-            defaultZoom={9}
-            defaultCenter={{lat:singleMap?.map[0]?.lat, lng:singleMap?.map[0]?.long}}
-            >
-               <Marker position={{lat:singleMap?.map[0]?.lat, lng:singleMap?.map[0]?.long}}
-                onClick={() => {
-                    setSelectedBusiness(singleMap)
-                }}
-               />
-               {selectedBusiness && (
-                   <InfoWindow                   // info window used to pop up info for a selected business
-                   position={{lat:singleMap?.map[0]?.lat, lng:singleMap?.map[0]?.long}} //position lat & lng = current selected business
-                   onCloseClick = {() => {
-                       setSelectedBusiness(null);
-                   }}>
-                   <div>
-                       <h2>{`${singleMap?.name}`}</h2>
-                       <p>{`${singleMap?.phone}`}</p>
-                   </div></InfoWindow>
-               )}
-            </GoogleMap>
+        <iframe
+            className='embed-map'
+            src={`https://www.google.com/maps/embed/v1/place?key=${environment}
+            &q=${singleMap['address']},${singleMap['city']}+${singleMap['state']}`}>
+        </iframe>
     )
-}
 
-const BusinessMap = () => {
-    return(
-        <div className='google-map' style={{ width: '332px', height: '50vh' }}>
-            <WrappedMap googleMapURL ={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBFE2JjLif0k10_tLpKkhSIC_XxoSOon3M'}
-            loadingElement = { <div style={{ height: "100%" }}/>}
-            containerElement = { <div style={{ height: "100%" }}/>}
-            mapElement = { <div className='google-map' style={{ height: "100%" }}/>}
-            />
-        </div>
-    )
+
 }
 
 
