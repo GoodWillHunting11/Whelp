@@ -21,13 +21,11 @@ function HeroImage() {
                 <div className='hero-form-container'>
                     <form className='hero-search' >
                             <label  htmlFor="search" >
-                                <input className='hero-search' id="search" placeholder='Find'>
+                                <input className='hero-search-input' id="search" placeholder='Find'>
 
                                 </input>
                             </label>
-                            <label  htmlFor="location" >
-                                <input className='location-search' id="location" placeholder='Near'></input>
-                            </label>
+
                             <button className='hero-submit' onClick={handleForm}><FontAwesomeIcon icon={faPaw} className='fa-paw' /></button>
                             <div className='hero-links-container'>
                                 <Link to='/login' className='hero-links'><FontAwesomeIcon icon={faCut} className='fa-nav' />Groomers</Link>

@@ -31,19 +31,35 @@
 
 .splash-search {
     height: 45.22px;
-    width: 50%;
+    width: 60%;
     border: none;
     box-sizing:border-box;
     padding: 10px;
     font-size: 18px;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    text-align: center;
+}
+
+.splash-search-input {
+    height: 45.22px;
+    width: 60%;
+    border: none;
+    box-sizing:border-box;
+    padding: 10px;
+    font-size: 18px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    text-align: left;
 }
 
 .splash-search:focus {
     outline: none;
 }
 
+.splash-search-input:focus {
+    outline: none;
+}
 
 .location-search {
     height: 45.22px;
