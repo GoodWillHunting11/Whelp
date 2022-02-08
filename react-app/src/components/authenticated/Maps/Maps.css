@@ -1,3 +1,10 @@
 .google-map {
     border-radius: 5px;
 }
+
+.embed-map {
+    width: 332px;
+    border: none;
+    height: 500px;
+    border-radius: 10px;
+}
