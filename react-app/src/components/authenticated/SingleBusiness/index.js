@@ -83,7 +83,9 @@ const SingleBusiness = () => {
                         <h2 className='business-photos-h2'>Photos</h2>
                         <div className='photo-bucket'>
                             {single?.photos?.map((photo, idx) => (
-                                <PhotoThumbnail key={idx} url={photo.url} />
+                                <Link key={idx} to={`/businesses/${id}/photos`}>
+                                    <PhotoThumbnail url={photo.url} />
+                                </Link>
                             ))}
                         </div>
                     </div>

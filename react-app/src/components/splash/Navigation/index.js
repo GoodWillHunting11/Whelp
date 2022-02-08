@@ -13,13 +13,13 @@ function SplashNavigation() {
                 <a href="https://github.com/GoodWillHunting11/Whelp" className='header-button' target='_blank' rel="noreferrer">GitHub Repo</a>
                 <div className="dropdown">
                     <button className="dropbtn">LinkedIn
-                    <i className="fa fa-caret-down"></i>
+                        <i className="fa fa-caret-down"></i>
                     </button>
                     <div className="dropdown-content">
-                    <a href="#" rel="noreferrer">Seth Corbett</a>
-                    <a href="https://www.linkedin.com/in/aaron-short-780446179/" target="_blank" rel="noreferrer">Aaron Short</a>
-                    <a href="https://www.linkedin.com/in/andres-aguilar-6408aa227/" target="_blank" rel="noreferrer">Andres Aguilar</a>
-                    <a href="https://www.linkedin.com/in/thien-dang-ct/" target="_blank" rel="noreferrer">Thien Dang</a>
+                        <a href="#" rel="noreferrer">Seth Corbett</a>
+                        <a href="https://www.linkedin.com/in/aaron-short-780446179/" target="_blank" rel="noreferrer">Aaron Short</a>
+                        <a href="https://www.linkedin.com/in/andres-aguilar-6408aa227/" target="_blank" rel="noreferrer">Andres Aguilar</a>
+                        <a href="https://www.linkedin.com/in/thien-dang-ct/" target="_blank" rel="noreferrer">Thien Dang</a>
                     </div>
                 </div>
             </div>

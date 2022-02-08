@@ -5,6 +5,11 @@
     position: relative;
 }
 
+.reviews-header {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    margin-bottom: 40px;
+}
+
 .stars {
     display: inline-block;
     font-size: 26px;

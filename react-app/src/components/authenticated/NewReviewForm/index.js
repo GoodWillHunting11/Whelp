@@ -4,6 +4,11 @@ import { useHistory, useParams } from 'react-router-dom';
 import { newReview } from '../../../store/review';
 import './NewReviewForm.css'
 
+// Import pics
+import bath from '../../../img/bath.png'
+import stroller from '../../../img/stroller.png'
+import walker from '../../../img/walker.png'
+
 const NewReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -113,24 +118,15 @@ const NewReviewForm = () => {
                         />
                     </label>
                 </div>
-                <div>
-                    <label className="new-review-label"> Picture
-                        <input
-                            className="new-review-input"
-                            type="text"
-                            value={url}
-                            onChange={e => setUrl(e.target.value)}
-                            autoComplete='off'
-                            placeholder="Image URL"
-                        />
-                    </label>
-                </div>
                 <div className='buttons-container'>
                     <button className='add-review-button' type='submit'>Add Review</button>
 
                     <button className='cancel-review-button' type='button' onClick={handleCancel}>Cancel</button>
                 </div>
             </form>
+            <div className='add-business-pics'>
+                <img className='icon-pics' id="review-pic" src={bath} alt='Puppy bath' />
+            </div>
         </div>
     )
 }

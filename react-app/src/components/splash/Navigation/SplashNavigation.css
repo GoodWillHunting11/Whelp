@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: flex-start;
     width: 40%;
+    flex-basis: 74%;
 }
 
 .splash-navigation {
@@ -114,6 +115,7 @@
     background-color: inherit;
     font-family: inherit;
     margin: 0;
+
   }
 
   /* Dropdown content (hidden by default) */
