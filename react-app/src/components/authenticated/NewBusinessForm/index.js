@@ -36,6 +36,18 @@ const NewBusinessForm = () => {
             setErrors(newBiz.errors)
         }
         else if (!newBiz.errors) {
+            await fetch('/api/maps/new', {
+                method: "POST",
+                headers: {
+                    "content-type":"application/json"
+                },
+                body: JSON.stringify({
+                    id : newBiz.id,
+                    address: newBiz.address + ' ' + newBiz.city + ' ' + newBiz.state + ' ' + newBiz.zipcode
+                })
+            });
+
+
             history.push(`/businesses/${newBiz.id}`)
         }
 

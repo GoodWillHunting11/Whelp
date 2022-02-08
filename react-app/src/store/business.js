@@ -110,6 +110,7 @@ export const newBusiness = (name, address, city, state, zipcode, phone, website,
     })
     if(response.ok) {
         const newBiz = await response.json()
+
         dispatch(addBusiness(newBiz))
         return newBiz
     } else if (response.status < 500) {
