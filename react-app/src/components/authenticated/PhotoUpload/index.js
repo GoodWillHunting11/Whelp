@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import imageUpload from '../../../img/upload.png'
+import './PhotoUpload.css'
 
 const UploadPicture = () => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
@@ -9,7 +11,8 @@ const UploadPicture = () => {
     const [imageLoading, setImageLoading] = useState(false);
     const { id } = useParams()
     const user = useSelector(state => state.session.user)
-
+    const businesses = useSelector(state => state.businessState.entries)
+    const single = businesses.find(single => single.id === +id)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,7 +33,7 @@ const UploadPicture = () => {
         if (res.ok) {
             await res.json();
             setImageLoading(false);
-            history.push("/");
+            history.push(`/businesses/${id}`);
         }
         else {
             setImageLoading(false);
@@ -45,16 +48,37 @@ const UploadPicture = () => {
         setPhoto(file);
     }
 
+    if(!single) {
+        return (
+            <h1 className='roll-heading'>Whelp! There's nothing here.</h1>
+        )
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-            />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
-        </form>
+        <div className="photo-upload-container">
+            <div className="title-container">
+                <h1 className="photo-stream-title">{single?.name}: <span className="photo-subtitle">Add Photos</span></h1>
+            </div>
+            <div className="photo-upload-form-container">
+                <img alt="upload" src={imageUpload} />
+                <h2 className='upload-form-h2'>Upload your {single?.name} photo here!</h2>
+                <p className='upload-form-p'>
+                    Only upload filetypes with (.png, .jpg, .jpeg, .gif) extensions.
+                </p>
+                <form className="upload-form-photo" onSubmit={handleSubmit}>
+                    <label className="file-button"> Browse Photos
+                    <input
+                    className="file-button"
+                    type="file"
+                    accept="image/*"
+                    onChange={updateImage}
+                    />
+                    </label>
+                    <button className='file-upload-button' type="submit">Upload</button>
+                    {(imageLoading)&& <p>Loading...</p>}
+                </form>
+            </div>
+        </div>
     )
 }
 
