@@ -31,4 +31,4 @@ class NewBusinessForm(FlaskForm):
     zipcode = StringField('zipcode', validators=[DataRequired(), validate_zip])
     phone = StringField('phone', validators=[DataRequired(), validate_phone])
     website = StringField('website', validators=[DataRequired(), validate_web])
-    category = SelectField('category', choices=["Parks", "Groomers", "Pet Stores", "Veterinarians", "Walker"], validators=[DataRequired()])
+    category = SelectField('category', choices=["Parks", "Groomers", "Pet Stores", "Veterinarians", "Walkers"], validators=[DataRequired()])
