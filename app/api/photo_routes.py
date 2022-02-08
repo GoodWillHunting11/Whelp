@@ -13,7 +13,7 @@ def index():
 @photo_routes.route("/new", methods=["POST"])
 # @login_required
 def upload_image():
-    print('heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeelo')
+
     data = request.json
     if "photo" not in request.files:
         return {"errors": "photo required"}, 400
@@ -26,10 +26,7 @@ def upload_image():
     photo.filename = get_unique_filename(photo.filename)
 
     upload = upload_file_to_s3(photo)
-    print('Yoooooooour req', data)
-    print(request.files)
-    print(request.data)
-    print(request.form['user_id'])
+
     if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
