@@ -60,7 +60,7 @@ const UploadPicture = () => {
                 <h1 className="photo-stream-title">{single?.name}: <span className="photo-subtitle">Add Photos</span></h1>
             </div>
             <div className="photo-upload-form-container">
-                <img alt="upload" src={imageUpload} />
+                <img className='upload-pic' alt="upload" src={imageUpload} />
                 <h2 className='upload-form-h2'>Upload your {single?.name} photo here!</h2>
                 <p className='upload-form-p'>
                     Only upload filetypes with (.png, .jpg, .jpeg, .gif) extensions.
