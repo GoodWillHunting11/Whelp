@@ -5,6 +5,7 @@
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
 }
 
 .new-business-label {
@@ -86,4 +87,14 @@
     max-width: 200px;
     width: 200px;
     height: 200px;
+}
+
+@media screen and (max-width: 800px) {
+    .new-business-form-container {
+        grid-template-columns: 4fr 0fr !important;
+    }
+
+    .add-business-pics {
+        display: none;
+    }
 }
