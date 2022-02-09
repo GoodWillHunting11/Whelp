@@ -78,14 +78,15 @@
 }
 
 .hero-submit {
-    height: 45.22px;
+    height: 45.6px;
     width: 8%;
     border: none;
     background-color: #de791b;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     position: relative;
-    bottom: .5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .hero-submit:focus {
@@ -125,4 +126,17 @@
 
 .fa-nav {
     padding-right: 5px;
+}
+
+
+@media screen and (max-width: 800px) {
+
+
+    .hero-search {
+      width: 100% !important;
+    }
+
+    .hero-submit {
+      padding-top: 0px;
+    }
 }

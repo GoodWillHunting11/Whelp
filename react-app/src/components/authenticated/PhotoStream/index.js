@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './PhotoStream.css'
@@ -6,7 +7,10 @@ const PhotoStream = () => {
     const {id} = useParams()
     const businesses = useSelector(state => state.businessState.entries)
     const single = businesses.find(single => single.id === +id)
-    console.log(single)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     if(!single) {
         return (

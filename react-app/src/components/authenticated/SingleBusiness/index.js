@@ -34,6 +34,10 @@ const SingleBusiness = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
+    useEffect(() => {
         (async() => {
             await dispatch(getAllBusinesses())
             await dispatch(getAllReviews(id))

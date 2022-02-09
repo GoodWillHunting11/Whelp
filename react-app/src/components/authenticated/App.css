@@ -22,3 +22,9 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .business-roll {
+        width: 100%;
+    }
+}

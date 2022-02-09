@@ -17,7 +17,7 @@
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: .3s;
-    z-index: 150;
+    z-index: 90;
 }
 
 @keyframes fadeInOpacity {
@@ -27,4 +27,11 @@
 	100% {
 		opacity: 1;
 	}
+}
+
+@media screen and (max-height: 920px) {
+    .form-main-signup {
+        margin-top: -225px;
+        height: 600px;
+    }
 }

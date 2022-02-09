@@ -1,11 +1,10 @@
 .main {
-    display: flex;
-    grid-template-columns: 1fr 1fr;
-    background-color: rgba(0,0,0,.3);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     height: 64px;
     z-index: 100;
-    position: absolute;
-    width: 100%;
+    width: 60%;
+    margin: auto;
     justify-content: center;
 
 }
@@ -14,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 40%;
+    width: 100%;
     flex-basis: 74%;
 }
 
@@ -153,11 +152,61 @@
     display: block;
   }
 
-@media screen and (max-width: 600px) {
+
+.responsive-nav{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #de791b;
+  z-index: 90;
+}
+
+.drop-button {
+  margin-top: 20px;
+  display: none;
+}
+
+.res-nav-bar-links {
+  display: block;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  padding-bottom: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+  font-weight: 600;
+}
+
+.mobile-logo {
+  margin-bottom: 15px;
+  margin-top: -5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+  width: 175px;
+}
+
+.fa-nav-res {
+  padding-left: 10px;
+}
+@media screen and (max-width: 800px) {
     .signup-button {
         display: none;
     }
-    /* .splash-search {
-        display: none;
-    } */
+    .drop-button {
+
+      display: block;
+    }
+
+    .main {
+      display: none;
+    }
+
+    .splash-search {
+      width: 100% !important;
+    }
+
+    .splash-submit {
+      height: 45.7px !important;
+
+    }
 }
