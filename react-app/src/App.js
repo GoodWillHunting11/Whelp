@@ -33,6 +33,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     (async() => {
       // await dispatch(authenticate());
       // setLoaded(true);

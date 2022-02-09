@@ -16,7 +16,10 @@ const EditBusinessForm = () => {
     const businesses = useSelector(state => state.businessState.entries)
     const { id } = useParams()
     const single = businesses.find(single => single.id === +id)
-    console.log(single)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     if (single) {
         localStorage.setItem('name', single.name)

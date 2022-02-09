@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -14,6 +14,10 @@ const UploadPicture = () => {
     const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
     const single = businesses.find(single => single.id === +id)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

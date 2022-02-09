@@ -3,7 +3,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -350px;
+    margin-top: -225px;
     margin-left: -230px;
     align-content: center;
     justify-items: center;
@@ -17,7 +17,7 @@
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: .3s;
-    z-index: 150;
+    z-index: 90;
 }
 
 @keyframes fadeInOpacity {

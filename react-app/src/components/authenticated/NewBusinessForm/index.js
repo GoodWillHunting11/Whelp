@@ -26,6 +26,10 @@ const NewBusinessForm = () => {
     const [website, setWebsite] = useState("");
     const [category, setCategory] = useState("Parks");
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
 
     const handleUpload = async (e) => {
         e.preventDefault()
