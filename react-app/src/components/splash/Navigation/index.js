@@ -1,10 +1,18 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faCaretSquareDown } from '@fortawesome/free-solid-svg-icons'
 import './SplashNavigation.css'
 
 import logo from '../../../img/mobile-logo.png'
 
 function SplashNavigation() {
+    const [show, setShow] = useState(false)
+
+    const handleMenu = (e) => {
+        e.preventDefault()
+        setShow(!show)
+    }
 
     return (
         <>
@@ -33,12 +41,13 @@ function SplashNavigation() {
             </div>
 
             <div className='responsive-nav'>
-            <div className='drop-button'>
+            <div className='drop-button' >
                 <img className='mobile-logo' alt='mobile-logo' src={logo} />
-                <Link to='/login' className='res-nav-bar-links'>Add a Business</Link>
-                <a href="https://github.com/GoodWillHunting11/Whelp" className='res-nav-bar-links' target='_blank' rel="noreferrer">GitHub Repo</a>
-                <Link className='res-nav-bar-links' to='/login'> Log in</Link>
-                <Link className='res-nav-bar-links' to='/signup'> Sign up</Link>
+                {show === false ? <a className='res-nav-bar-links' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faBars} className='fa-nav-res' /></a>:<a className='res-nav-bar-links' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faCaretSquareDown} className='fa-nav-res' /></a>}
+                {show === true ? <Link to='/login' className='res-nav-bar-links'>Add a Business</Link>: <></>}
+                {show === true ? <a href="https://github.com/GoodWillHunting11/Whelp" className='res-nav-bar-links' target='_blank' rel="noreferrer">GitHub Repo</a>: <></>}
+                {show === true ? <Link className='res-nav-bar-links' to='/login'> Log in</Link>: <></>}
+                {show === true ? <Link className='res-nav-bar-links' to='/signup'> Sign up</Link>: <></>}
             </div>
             </div>
             </div>

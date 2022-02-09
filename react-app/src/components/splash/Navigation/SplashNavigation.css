@@ -184,6 +184,10 @@
   border-bottom: 1px solid white;
   width: 175px;
 }
+
+.fa-nav-res {
+  padding-left: 10px;
+}
 @media screen and (max-width: 800px) {
     .signup-button {
         display: none;
