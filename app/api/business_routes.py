@@ -64,6 +64,7 @@ def get_category(categories):
     data = []
     for each in categories:
          category_set = {
+             "id": each.id,
              "category": each.name,
          }
          data.append(category_set)
