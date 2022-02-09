@@ -6,7 +6,7 @@ import './Hero.css'
 import logo from '../../../img/splash-logo.png'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getAllSearches } from '../../../store/search'
+// import { getAllSearches } from '../../../store/search'
 
 function HeroImage() {
     const [search, setSearch] = useState("")
@@ -21,10 +21,6 @@ function HeroImage() {
         const payload = {
             search,
         }
-
-        const newSearch = await dispatch(getAllSearches(payload))
-
-
 
             history.push(`/search/${search}`)
     }

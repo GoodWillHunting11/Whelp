@@ -57,7 +57,7 @@ const SearchBusiness = () => {
                 </div>
                 <div className='business-roll'>
                     {searchRes.map((biz) => (
-                        <BusinessRoll biz={biz} />
+                        <BusinessRoll key={biz.id} biz={biz} />
                     ))}
                 </div>
             </div>
