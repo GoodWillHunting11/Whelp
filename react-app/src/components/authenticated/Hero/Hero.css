@@ -126,3 +126,17 @@
 .fa-nav {
     padding-right: 5px;
 }
+
+
+@media screen and (max-width: 800px) {
+
+
+    .hero-search {
+      width: 100% !important;
+    }
+
+    .hero-submit {
+      height: 45.7px !important;
+      padding-top: 0px;
+    }
+}
