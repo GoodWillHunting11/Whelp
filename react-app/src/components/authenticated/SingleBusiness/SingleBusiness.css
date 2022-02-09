@@ -149,7 +149,7 @@
 
     .data-col-container {
         display: grid;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr 0fr !important;
         width: 69%;
         margin-top: 50px;
         margin-left: auto;
