@@ -60,6 +60,7 @@ const LoginForm = () => {
               placeholder='Email'
               value={email}
               onChange={updateEmail}
+              autoComplete="off"
             />
             </label>
           </div>
@@ -72,6 +73,7 @@ const LoginForm = () => {
               placeholder='Password'
               value={password}
               onChange={updatePassword}
+              autoComplete="off"
             />
             </label>
             <div className='button-container'>

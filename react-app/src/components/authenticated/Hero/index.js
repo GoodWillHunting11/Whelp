@@ -21,7 +21,7 @@ function HeroImage() {
                 <div className='hero-form-container'>
                     <form className='hero-search' >
                             <label  htmlFor="search" >
-                                <input className='hero-search-input' id="search" placeholder='Find'>
+                                <input className='hero-search-input' autoComplete="off" id="search" placeholder='Find'>
 
                                 </input>
                             </label>

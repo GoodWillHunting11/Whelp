@@ -21,7 +21,7 @@ function SplashImage() {
                 <div className='splash-form-container'>
                     <form className='splash-search' >
                             <label  htmlFor="search" >
-                                <input className='splash-search-input' id="search" placeholder='Find'>
+                                <input className='splash-search-input' id="search" autoComplete="off" placeholder='Find'>
 
                                 </input>
                             </label>

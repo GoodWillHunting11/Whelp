@@ -8,6 +8,8 @@
 .reviews-header {
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
     margin-bottom: 40px;
+    font-size: 20px;
+    color: rgba(45,46,47,1)
 }
 
 .stars {
@@ -38,6 +40,7 @@
     width: 10px;
     font-weight: bold;
     font-size: 16px;
+    color: rgba(45,46,47,0.9);
 }
 
 .review-message {
