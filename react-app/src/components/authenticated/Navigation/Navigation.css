@@ -6,13 +6,22 @@
     position: relative;
 }
 
+.main-logged-nav {
+    display: grid;
+    background-color: #de791b;
+    height: 64px;
+    z-index: 100;
+    position: relative;
+
+}
+
 .main-nav {
     display: flex;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     z-index: 100;
     height: 64px;
-    position: absolute;
-    width: 100%;
+    width: 60%;
+    margin: auto;
     justify-content: center;
 }
 
@@ -45,4 +54,21 @@
 .logout-button:focus {
     box-shadow: inset 0 0 0 2px rgb(0 0 0 / 60%);
     outline: none;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .drop-button {
+      display: block;
+    }
+
+    .main-nav {
+      display: none;
+    }
+
+    .main-logged-nav {
+        margin-bottom: 75px;
+    }
+
 }
