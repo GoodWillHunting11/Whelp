@@ -1,5 +1,19 @@
-/* Placeholder so css file gets pushed to git, feel free to delete */
+.header-cat {
+    padding: 50px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 10px;
+}
 
-.test {
-    color: red;
+.photo-stream {
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.photo-stream-title {
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+}
+
+.search-subtitle {
+    color: rgba(43,39,60,.8);
 }

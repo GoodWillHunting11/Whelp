@@ -50,11 +50,11 @@ function HeroImage() {
 
                             <button className='hero-submit' onClick={handleForm}><FontAwesomeIcon icon={faPaw} className='fa-paw' /></button>
                             <div className='hero-links-container'>
-                                <Link to='/login' className='hero-links'><FontAwesomeIcon icon={faCut} className='fa-nav' />Groomers</Link>
-                                <Link to='/login' className='hero-links'><FontAwesomeIcon icon={faDog} className='fa-nav' />Parks</Link>
-                                <Link to='/login' className='hero-links'><FontAwesomeIcon icon={faBell} className='fa-nav' />Walkers</Link>
-                                <Link to='/login' className='hero-links'><FontAwesomeIcon icon={faStethoscope} className='fa-nav' />Veterinarians</Link>
-                                <Link to='/login' className='hero-links'><FontAwesomeIcon icon={faBone} className='fa-nav' />Pet Stores</Link>
+                                <Link to='/categories/3' className='hero-links'><FontAwesomeIcon icon={faCut} className='fa-nav' />Groomers</Link>
+                                <Link to='/categories/1' className='hero-links'><FontAwesomeIcon icon={faDog} className='fa-nav' />Parks</Link>
+                                <Link to='/categories/5' className='hero-links'><FontAwesomeIcon icon={faBell} className='fa-nav' />Walkers</Link>
+                                <Link to='/categories/4' className='hero-links'><FontAwesomeIcon icon={faStethoscope} className='fa-nav' />Veterinarians</Link>
+                                <Link to='/categories/2' className='hero-links'><FontAwesomeIcon icon={faBone} className='fa-nav' />Pet Stores</Link>
                             </div>
                         </form>
 

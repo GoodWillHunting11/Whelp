@@ -21,10 +21,12 @@ import EditBusinessForm from './components/authenticated/EditBusinessForm';
 import SearchBusiness from './components/authenticated/SearchBusiness';
 import PhotoStream from './components/authenticated/PhotoStream';
 import UploadPicture from './components/authenticated/PhotoUpload';
+import BusinessCat from './components/authenticated/BusinessCat';
 import { authenticate } from './store/session';
 
 // Import states
 import { getAllBusinesses } from './store/business';
+import getAllBusinessesCat from './store/category'
 import * as sessionActions from './store/session'
 
 
@@ -52,6 +54,7 @@ function App() {
       // setLoaded(true);
       await dispatch(sessionActions.authenticate()).then(() => setLoaded(true));
       await dispatch(getAllBusinesses())
+      // await dispatch(getAllBusinessesCat())
     })();
   }, [dispatch, loaded]);
 
@@ -112,6 +115,9 @@ function App() {
           </Route>
           <Route path='/search/:id' exact={true}>
             <SearchBusiness />
+          </Route>
+          <Route path='/categories/:id' exact={true}>
+              <BusinessCat/>
           </Route>
           <Route>
             <h1 className='roll-heading'>Whelp! There's nothing here.</h1>
