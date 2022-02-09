@@ -71,6 +71,7 @@ const SignUpForm = () => {
               onChange={updateUsername}
               value={username}
               placeholder='User Name'
+              autoComplete="off"
             ></input>
           </label>
         </div>
@@ -83,6 +84,7 @@ const SignUpForm = () => {
               onChange={updateEmail}
               value={email}
               placeholder='Email'
+              autoComplete="off"
             ></input>
           </label>
         </div>
@@ -95,6 +97,7 @@ const SignUpForm = () => {
               onChange={updateZipcode}
               value={zipcode}
               placeholder='Zipcode'
+              autoComplete="off"
             ></input>
           </label>
         </div>

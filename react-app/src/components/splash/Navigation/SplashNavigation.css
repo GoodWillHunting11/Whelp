@@ -40,6 +40,10 @@
 
 }
 
+.login-button:hover {
+  color: rgb(238, 235, 235);
+}
+
 .header-button {
     color: white;
     transition: color .15s ease-in-out;

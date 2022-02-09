@@ -72,6 +72,10 @@
     margin-bottom: 15px;
 }
 
+.sign-up-link:hover {
+    text-decoration: underline;
+}
+
 .log-graph {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -125,7 +129,10 @@
     letter-spacing: .5px;
     margin-top: 20px;
     margin-bottom: 30px;
+}
 
+.button-container button:hover {
+    background-color: #41abe0;
 }
 
 .button-container-demo {
