@@ -92,6 +92,7 @@
 @media screen and (max-width: 800px) {
     .new-business-form-container {
         grid-template-columns: 4fr 0fr !important;
+        padding-top: 25px;
     }
 
     .add-business-pics {
