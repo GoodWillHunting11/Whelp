@@ -1,0 +1,40 @@
+.search-stream-title {
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: #3a92e3;
+}
+
+.search-subtitle {
+    color: rgba(43,39,60,.8);
+}
+
+.search-title-container {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-left:11%;
+    padding-bottom: 15px;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+}
+
+.no-search-stream-title {
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: #3a92e3;
+}
+
+.no-search-subtitle {
+    color: rgba(43,39,60,.8);
+}
+
+.no-search-title-container {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+}

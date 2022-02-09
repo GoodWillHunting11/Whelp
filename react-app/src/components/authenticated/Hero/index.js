@@ -1,17 +1,33 @@
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaw, faStethoscope, faCut, faDog, faBone, faBell } from '@fortawesome/free-solid-svg-icons'
 
 import './Hero.css'
 import logo from '../../../img/splash-logo.png'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { getAllSearches } from '../../../store/search'
 
 function HeroImage() {
+    const [search, setSearch] = useState("")
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const [errors, setErrors] = useState([]);
+    const params = useParams([])
 
-    const handleForm = (e) => {
+    const handleForm = async (e) => {
         e.preventDefault()
-        console.log('Do your thing')
-    }
 
+        const payload = {
+            search,
+        }
+
+        const newSearch = await dispatch(getAllSearches(payload))
+
+
+
+            history.push(`/search/${search}`)
+    }
     return (
         <div className='hero-container'>
             <div className='hero-content'>
@@ -21,7 +37,13 @@ function HeroImage() {
                 <div className='hero-form-container'>
                     <form className='hero-search' >
                             <label  htmlFor="search" >
-                                <input className='hero-search-input' autoComplete="off" id="search" placeholder='Find'>
+                                <input className='hero-search-input' autoComplete="off"
+                                id="search"
+                                placeholder='Find'
+                                value={search}
+                                required
+                                onChange={e => setSearch(e.target.value)}
+                                >
 
                                 </input>
                             </label>

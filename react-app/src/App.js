@@ -18,6 +18,7 @@ import AppNavigation from './components/authenticated/Navigation';
 import Footer from './components/splash/Footer';
 import SingleBusiness from './components/authenticated/SingleBusiness';
 import EditBusinessForm from './components/authenticated/EditBusinessForm';
+import SearchBusiness from './components/authenticated/SearchBusiness';
 import PhotoStream from './components/authenticated/PhotoStream';
 import UploadPicture from './components/authenticated/PhotoUpload';
 import { authenticate } from './store/session';
@@ -108,6 +109,9 @@ function App() {
           </Route>
           <Route path='/businesses/:id/reviews/:reviewId/edit' exact={true}>
               <EditReviewForm />
+          </Route>
+          <Route path='/search/:id' exact={true}>
+            <SearchBusiness />
           </Route>
           <Route>
             <h1 className='roll-heading'>Whelp! There's nothing here.</h1>
