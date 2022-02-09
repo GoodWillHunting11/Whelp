@@ -21,7 +21,11 @@ const BusinessRoll = ({biz}) => {
         phone = formatPhone(biz.phone)
     }
 
+    let fullAddress = biz?.address + " " + biz?.city + ", " + biz?.state + " " + biz?.zipcode;
+    if (fullAddress.length > 40) fullAddress = fullAddress.slice(0, 34) + "..."
+
     if(!biz.photos.length) {
+
         return (
             <div className='roll-container'>
                 <div className='roll-no-pic'>
@@ -52,7 +56,7 @@ const BusinessRoll = ({biz}) => {
                 <Link className='roll-title' to={`/businesses/${biz?.id}`}>{biz?.name}</Link>
                 <p className="roll-info"><strong>Category:</strong> {biz?.categories[0]?.category}</p>
                 <p className="roll-info"><strong>Contact:</strong> {phone}</p>
-                <p className="roll-info"><strong>Address:</strong> {biz?.address} {biz?.city}, {biz?.state} {biz?.zipcode}</p>
+                <p className="roll-info"><strong>Address:</strong> {fullAddress}</p>
                 <div className='rating-container'>
                     <div className='roll-rating'><span className="stars" style={{"--rating": `${rating}`}}></span></div>
                     <div className='roll-more'><Link className='roll-more-link' to={`/businesses/${biz?.id}`}>MORE...</Link></div>
