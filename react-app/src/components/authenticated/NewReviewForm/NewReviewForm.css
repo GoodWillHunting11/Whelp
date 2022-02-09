@@ -160,3 +160,11 @@
     top: 25px;
     left: 10px;
   }
+
+
+  @media screen and (max-width: 800px) {
+    .new-review-form-container {
+      grid-template-columns: 4fr 0fr !important;
+      padding-top: 25px;
+    }
+  }

@@ -86,7 +86,9 @@
     border-bottom-right-radius: 4px;
     position: relative;
     padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0px;
+    bottom: .75px;
+
 }
 
 .hero-submit:focus {

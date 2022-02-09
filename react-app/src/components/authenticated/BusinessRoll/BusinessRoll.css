@@ -74,6 +74,10 @@
     font-weight: bold;
 }
 
+.roll-more-link:hover {
+    text-decoration: underline;
+}
+
 .roll-head {
     font-weight: bold;
     color: #de791b;

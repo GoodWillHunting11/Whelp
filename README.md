@@ -1,3 +1,68 @@
+# Whelp
+This is a clone of [Yelp](https://www.yelp.com/).
+
+What rhymes with Yelp? Whelp! Whelp also happens to mean puppy, so take this puppy business review site for a walk in the park. Access the [Whelp MVP](https://whelp-aa.herokuapp.com/).
+
+**Whelp** is the place to go to share your experiences with local canine businesses.
+
+# Index
+|
+[MVP Feature List](https://github.com/GoodWillHunting11/Whelp/wiki/MVP-Feature-List) |
+[Database Schema](https://github.com/GoodWillHunting11/Whelp/wiki/Database-Schema) |
+[API Documentation](https://github.com/GoodWillHunting11/Whelp/wiki/API-Documentation) |
+[Frontend Routes](https://github.com/GoodWillHunting11/Whelp/wiki/Frontend-Routes) |
+
+# Technologies Used
+<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/>
+
+# Clone Whelp
+
+1. Clone this repository (only this branch)
+
+   ```bash
+   git clone https://github.com/GoodWillHunting11/Whelp.git
+   ```
+2. Install dependencies
+
+      ```bash
+      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+      ```
+
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+
+5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+
+   ```bash
+   pipenv shell
+   ```
+
+   ```bash
+   flask db upgrade
+   ```
+
+   ```bash
+   flask seed all
+   ```
+
+   ```bash
+   flask run
+   ```
+
+6. To run the React App, cd into the `react-app` directory.
+
+   ```bash
+   npm install
+   ```
+
+   ```bash
+   npm start
+   ```
+
+# Features Highlight
+# Challenges Highlight
+# Code Preview
 # Flask React Project
 
 This is the starter for the Flask React project.

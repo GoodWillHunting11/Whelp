@@ -99,7 +99,7 @@ const SingleBusiness = () => {
                     <div className='business-meta'>
                         <div className='web'>
                             <h3 className='meta-h3'>Website</h3>
-                            <a href={single.website} target="_blank" rel="noreferrer">{single.website}</a>
+                            <a href={single.website} target="_blank" rel="noreferrer">Visit {single.name}</a>
                         </div>
                         {phone ? <div className='phone'><h3 className='meta-h3'>Contact</h3>{phone}</div>:<></>}
                         <div className='address'>
