@@ -1,4 +1,5 @@
 from flask import Blueprint, request, render_template
+from flask_login import current_user, login_required
 from app.models import db, Review, Photo
 from app.forms import ReviewForm, EditReviewForm
 from sqlalchemy import desc
@@ -26,6 +27,7 @@ def get_reviews(business_id):
 
 
 @review_routes.route('/', methods=['POST'])
+@login_required
 def post_review(business_id):
     data = request.json
     form = ReviewForm()
@@ -48,6 +50,7 @@ def post_review(business_id):
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @review_routes.route('/<int:review_id>/', methods=["PATCH"])
+@login_required
 def edit_review(business_id, review_id):
 
     data = request.json
@@ -69,6 +72,7 @@ def edit_review(business_id, review_id):
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @review_routes.route('/<int:review_id>/', methods=["DELETE"])
+@login_required
 def delete_review(business_id, review_id):
     Review.query.filter(Review.id == review_id).delete()
 
