@@ -33,11 +33,11 @@ export const deleteReview = payload => {
 
 export const getAllReviews = businessId => async dispatch => {
 
-    const response = await fetch (`/api/businesses/${businessId}/reviews`)
+    const response = await fetch (`/api/businesses/${businessId}/reviews/`)
 
     if (response.ok) {
         const reviews = await response.json()
-        console.log(reviews)
+
         dispatch(loadReviews(reviews))
         return reviews
     }
@@ -70,7 +70,7 @@ export const newReview = (payload) => async dispatch => {
 
 export const editOneReview = payload => async dispatch => {
 
-    const response = await fetch(`/api/businesses/${payload.businessId}/reviews/${payload.id}`, {
+    const response = await fetch(`/api/businesses/${payload.businessId}/reviews/${payload.id}/`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export const editOneReview = payload => async dispatch => {
 
 export const removeOneReview = payload => async dispatch => {
 
-    const response = await fetch(`/api/businesses/${payload.businessId}/reviews/${payload.reviewToDeleteId}`, {
+    const response = await fetch(`/api/businesses/${payload.businessId}/reviews/${payload.reviewToDeleteId}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

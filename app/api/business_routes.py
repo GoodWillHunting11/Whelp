@@ -97,7 +97,7 @@ def get_reviews(reviews):
     return data
 
 
-@business_routes.route('/new', methods=['POST'])
+@business_routes.route('/new/', methods=['POST'])
 @login_required
 def create_business():
     data = request.json
@@ -129,7 +129,7 @@ def to_dict(self):
         'website': self.website
     }
 
-@business_routes.route('/delete/<int:id>', methods=['DELETE'])
+@business_routes.route('/delete/<int:id>/', methods=['DELETE'])
 @login_required
 def delete_business(id):
     remove = Business.query.get(id)
@@ -137,7 +137,7 @@ def delete_business(id):
     db.session.commit()
     return to_dict(remove)
 
-@business_routes.route('/edit/<int:id>', methods=['PATCH'])
+@business_routes.route('/edit/<int:id>/', methods=['PATCH'])
 @login_required
 def patch_business(id):
     data = request.json

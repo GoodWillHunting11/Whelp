@@ -20,12 +20,10 @@ def validation_errors_to_error_messages(validation_errors):
 
 @category_routes.route('/', methods=['GET'])
 def fetch_all():
-    print('jeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeelo')
     all_cats = Category.query.options(joinedload(Category.business)).all()
-    print('heeeeeeeeelo', all_cats)
     data = []
     for cat in all_cats:
-        print('eaaaaaaaaaaaach one', cat)
+
         business_data = get_business(cat.business)
         each = {
             "id": cat.id,

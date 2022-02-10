@@ -56,9 +56,9 @@ def post_review(business_id):
 
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
-@review_routes.route('/<int:review_id>', methods=["PATCH"])
+@review_routes.route('/<int:review_id>/', methods=["PATCH"])
 def edit_review(business_id, review_id):
-    print('do i make it do edit roteffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', review_id)
+
     data = request.json
     form = EditReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']

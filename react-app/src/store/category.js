@@ -11,8 +11,8 @@ export const loadBusinessesCat = payload => {
 
 export const getAllBusinessesCat = () => async dispatch => {
 
-    const response = await fetch(`/api/categories`)
-    console.log(response, "respuestaaaaaaaaaaama")
+    const response = await fetch(`/api/categories/`)
+
 
     if (response.ok) {
         const businessesCat = await response.json()

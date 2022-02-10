@@ -33,7 +33,7 @@ export const editBusiness = editedBusiness => {
 
 export const editingBusiness = (id, name, address, city, state, zipcode, phone, website, category) => async dispatch => {
 
-    const response = await fetch(`/api/businesses/edit/${id}`,
+    const response = await fetch(`/api/businesses/edit/${id}/`,
     {method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const editingBusiness = (id, name, address, city, state, zipcode, phone, 
 
 export const getAllBusinesses = () => async dispatch => {
 
-    const response = await fetch(`/api/businesses`, {
+    const response = await fetch(`/api/businesses/`, {
         method: 'GET'
     })
 
@@ -80,7 +80,7 @@ export const getAllBusinesses = () => async dispatch => {
 }
 
 export const removeBusiness = business => async dispatch => {
-    const response = await fetch(`/api/businesses/delete/${business}`, {
+    const response = await fetch(`/api/businesses/delete/${business}/`, {
         method: 'DELETE'
     })
 
@@ -92,7 +92,7 @@ export const removeBusiness = business => async dispatch => {
 
 export const newBusiness = (name, address, city, state, zipcode, phone, website, category) => async dispatch => {
 
-    const response = await fetch(`/api/businesses/new`, {
+    const response = await fetch(`/api/businesses/new/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
