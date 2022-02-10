@@ -32,7 +32,7 @@ const NewBusinessForm = () => {
     const handleUpload = async (e) => {
         e.preventDefault()
 
-        const newBiz = await dispatch(newBusiness(name, address, city, state, zipcode, phone, website, category))
+        const newBiz = await dispatch(newBusiness(name, address, city, state.toUpperCase(), zipcode, phone, website, category))
 
         if(newBiz.errors) {
             setErrors(newBiz.errors)

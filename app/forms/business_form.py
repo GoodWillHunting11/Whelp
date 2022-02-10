@@ -3,6 +3,15 @@ from wtforms import StringField, SelectField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import Business, Category
 
+stateAbbreviations = [ \
+ 'AL','AK','AS','AZ','AR','CA','CO','CT','DE','DC','FM','FL','GA', \
+ 'GU','HI','ID','IL','IN','IA','KS','KY','LA','ME','MH','MD','MA', \
+ 'MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND', \
+ 'MP','OH','OK','OR','PW','PA','PR','RI','SC','SD','TN','TX','UT', \
+ 'VT','VI','VA','WA','WV','WI','WY' \
+]
+
+
 def validate_zip(form, field):
     zipcode = field.data
     if(not zipcode.isdigit() or len(zipcode) != 5):
@@ -20,7 +29,7 @@ def validate_web(form, field):
 
 def validate_state(form, field):
     state = field.data
-    if(len(state) != 2):
+    if(len(state) != 2 or state not in stateAbbreviations):
         raise ValidationError('Please enter a valid state abbreviation.')
 
 class NewBusinessForm(FlaskForm):
