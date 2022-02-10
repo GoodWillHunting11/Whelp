@@ -38,7 +38,7 @@ const EditBusinessForm = () => {
     const [zipcode, setZipcode] = useState(localStorage.getItem('zipcode'))
     const [phone, setPhone] = useState(localStorage.getItem('phone'))
     const [website, setWebsite] = useState(localStorage.getItem('website'))
-    const [category, setCategory] = useState(localStorage.getItem('category'))
+    const [category] = useState(localStorage.getItem('category'))
 
 
     const handleUpload = async (e) => {
