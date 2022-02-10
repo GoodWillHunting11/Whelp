@@ -33,7 +33,7 @@ const SearchBusiness = () => {
     }
 
     const businessIndexes = findBiz(stringBizList)
-    console.log('biz indexes',businessIndexes)
+
 
     function finalArrOfBiz(indexArr, businesses){
         let finalArr = []
@@ -45,7 +45,7 @@ const SearchBusiness = () => {
     }
 
     const searchRes = finalArrOfBiz(businessIndexes, businesses)
-    console.log('Final Result', searchRes)
+
 
     if(searchRes.length){
 

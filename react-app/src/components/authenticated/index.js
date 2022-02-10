@@ -13,7 +13,7 @@ const HomeApp = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
-    console.log('businesses', businesses)
+
     return (
             <>
                 <HeroImage />

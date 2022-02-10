@@ -9,7 +9,7 @@ const BusinessMap = () => {
     const { id } = useParams()
     const businesses = useSelector(state => state.businessState.entries)
     const singleMap = businesses.find(single => single.id === +id)
-    console.log('here is your map', singleMap)
+
     return (
         <iframe
             className='embed-map'

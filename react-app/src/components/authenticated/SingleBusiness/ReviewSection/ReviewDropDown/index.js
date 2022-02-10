@@ -15,7 +15,7 @@ const ReviewDropDown = ({ review, handleDeleteReview, id }) => {
 
     useEffect(() => {
         const checkIfClickedOutside = e => {
-            console.log(ref.current)
+
 
         if (showDropDown && ref.current && !ref.current.contains(e.target)) {
             setShowDropDown(false)

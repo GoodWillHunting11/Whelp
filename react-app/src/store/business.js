@@ -74,7 +74,7 @@ export const getAllBusinesses = () => async dispatch => {
 
     if (response.ok) {
         const businesses = await response.json()
-        console.log('hello', businesses)
+
         dispatch(loadBusinesses(businesses))
     }
 }
@@ -142,7 +142,7 @@ const businessReducer = ( state = initialState, action ) => {
             let target = action.deletedBusiness.id
             let removing = newState.entries.find(one => one.id === target)
             let idx = newState.entries.indexOf(removing)
-            console.log('here', idx)
+
             newState.entries.splice(idx, 1)
             return newState
         default:
