@@ -60,7 +60,7 @@ function AppNavigation() {
                 <div className='responsive-nav'>
                     <div className='drop-button' >
                         <img className='mobile-logo' alt='mobile-logo' src={logo} />
-                        {show === false ? <a className='res-nav-bar-links' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faBars} className='fa-nav-res' /></a>:<a className='res-nav-bar-links' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faCaretSquareDown} className='fa-nav-res' /></a>}
+                        {show === false ? <button className='res-nav-bar-links res-margin' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faBars} className='fa-nav-res' /></button>:<button className='res-nav-bar-links res-margin' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faCaretSquareDown} className='fa-nav-res' /></button>}
                         {show === true ? <Link to='/' className='res-nav-bar-links' onClick={handleHideLink}>Home</Link>: <></>}
                         {show === true ? <Link to='/businesses/new' className='res-nav-bar-links' onClick={handleHideLink}>Add a Business</Link>: <></>}
                         {show === true ? <a href="https://github.com/GoodWillHunting11/Whelp" className='res-nav-bar-links' target='_blank' rel="noreferrer">GitHub Repo</a>: <></>}
