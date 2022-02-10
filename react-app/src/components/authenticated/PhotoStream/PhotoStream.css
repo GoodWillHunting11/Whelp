@@ -70,6 +70,14 @@ figure > img {
     padding: 15px;
 }
 
+.trash {
+  margin-top: 5px;
+  text-align: left;
+  margin-left: 5px;
+  font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+  color: #de791b;
+}
+
 @media screen and (max-width: 600px) {
   /* .explore-caption {
     display: none;
