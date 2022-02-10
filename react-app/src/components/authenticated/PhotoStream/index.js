@@ -7,7 +7,7 @@ import './PhotoStream.css'
 
 const PhotoStream = () => {
     const history = useHistory()
-    const {id} = useParams()
+    const { id } = useParams()
     const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
     const single = businesses.find(single => single.id === +id)
@@ -18,7 +18,7 @@ const PhotoStream = () => {
 
     const handleDelete = async (photoId) =>  {
 
-        const res = await fetch(`/api/photos/delete/${photoId}/`, {
+        await fetch(`/api/photos/delete/${photoId}/`, {
             method: "DELETE",
         });
 

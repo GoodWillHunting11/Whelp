@@ -40,16 +40,7 @@ def post_review(business_id):
             business_id = business_id,
         )
 
-        new_photo = Photo(
-            url = data["url"],
-            user_id = data["userId"],
-            business_id = business_id,
-        )
-
         db.session.add(new_review)
-        if data["url"]:
-            db.session.add(new_photo)
-
         db.session.commit()
 
         return data

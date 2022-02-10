@@ -6,8 +6,6 @@ import './NewReviewForm.css'
 
 // Import pics
 import bath from '../../../img/bath.png'
-import stroller from '../../../img/stroller.png'
-import walker from '../../../img/walker.png'
 
 const NewReviewForm = () => {
     const dispatch = useDispatch();
@@ -19,7 +17,7 @@ const NewReviewForm = () => {
     const [errors, setErrors] = useState([]);
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState("");
-    const [url, setUrl] = useState("");
+    // const [url, setUrl] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -27,7 +25,7 @@ const NewReviewForm = () => {
         const payload = {
             rating: parseInt(rating),
             review,
-            url,
+            // url,
             businessId: params.id,
             userId: user.id
         }
