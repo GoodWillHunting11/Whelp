@@ -28,7 +28,7 @@ const PhotoStream = () => {
 
                         <figure  key={idx}>
 
-                                <img className='photo-spread' src={photo.url} />
+                                <img className='photo-spread' alt={`whelp-${photo.id}`} src={photo.url} />
 
                         </figure>
 

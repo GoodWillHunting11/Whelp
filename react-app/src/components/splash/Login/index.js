@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
@@ -11,7 +10,7 @@ import Footer from "../Footer";
 import './Login.css'
 
 function LoginPage({page}) {
-    const [form, setForm] = useState(page)
+
     const sessionUser = useSelector(state => state.session.user)
 
     if(sessionUser) return (

@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useParams, useHistory, Link } from 'react-router-dom'
+import { useSelector} from 'react-redux'
+import { useParams } from 'react-router-dom'
 import BusinessRoll from '../BusinessRoll'
 
 import './SearchBusiness.css'

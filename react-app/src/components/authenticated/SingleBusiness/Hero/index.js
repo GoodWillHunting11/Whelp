@@ -1,6 +1,4 @@
 import './HeroSingle.css'
-import logo from '../../../../img/splash-logo.png'
-import { useState } from 'react'
 
 const SingleHero  = ({single, reviews}) => {
     if(!single.categories) {

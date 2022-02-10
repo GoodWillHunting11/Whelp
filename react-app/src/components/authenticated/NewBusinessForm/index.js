@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link, useHistory } from 'react-router-dom';
-import { getAllBusinesses, newBusiness } from '../../../store/business';
-import * as sessionActions from '../../../store/session'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom';
+import { newBusiness } from '../../../store/business';
+
 
 // Import pics
 import bath from '../../../img/bath.png'
@@ -14,8 +14,6 @@ import './NewBusinessForm.css'
 const NewBusinessForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const user = useSelector(state => state.session.user)
-    const businesses = useSelector(state => state.businessState.entries)
     const [errors, setErrors] = useState([]);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");

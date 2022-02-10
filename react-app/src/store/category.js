@@ -24,7 +24,6 @@ export const getAllBusinessesCat = () => async dispatch => {
 export const initialState = { entries: [] }
 
 const businessCatReducer = ( state = initialState, action ) => {
-    let newState
     switch (action.type) {
         case LOAD_BUSINESSCAT:
             return {...state, entries: [...action.payload['data']]}

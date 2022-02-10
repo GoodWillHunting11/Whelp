@@ -6,7 +6,7 @@ function LogPageHeader() {
     return (
         <div className='main-log'>
             <div className='logo-log'>
-                <Link to='/'><img className='logo-image' src={logo} /></Link>
+                <Link to='/'><img alt='whelp-logo' className='logo-image' src={logo} /></Link>
             </div>
         </div>
     )
