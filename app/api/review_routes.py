@@ -77,7 +77,7 @@ def edit_review(business_id, review_id):
 
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
-@review_routes.route('/<int:review_id>', methods=["DELETE"])
+@review_routes.route('/<int:review_id>/', methods=["DELETE"])
 def delete_review(business_id, review_id):
     Review.query.filter(Review.id == review_id).delete()
 
