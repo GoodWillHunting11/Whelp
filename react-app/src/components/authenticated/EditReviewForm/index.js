@@ -4,10 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { editOneReview } from '../../../store/review';
 import './EditReviewForm.css'
 
-// Import pics
-import bath from '../../../img/bath.png'
+// Import pic
 import stroller from '../../../img/stroller.png'
-import walker from '../../../img/walker.png'
 
 const EditReviewForm = () => {
     const dispatch = useDispatch();
@@ -76,7 +74,7 @@ const EditReviewForm = () => {
                             name="stars"
                             id="star-1"
                             value="5"
-                            defaultChecked={rating == 5}
+                            defaultChecked={parseInt(rating) === 5}
                         />
                         <label className="star star-1 star-label" htmlFor="star-1"></label>
                         <input
@@ -85,7 +83,7 @@ const EditReviewForm = () => {
                             name="stars"
                             id="star-2"
                             value="4"
-                            defaultChecked={rating == 4}
+                            defaultChecked={parseInt(rating) === 4}
                         />
                         <label className="star star-2 star-label" htmlFor="star-2"></label>
                         <input
@@ -94,7 +92,7 @@ const EditReviewForm = () => {
                             name="stars"
                             id="star-3"
                             value="3"
-                            defaultChecked={rating == 3}
+                            defaultChecked={parseInt(rating) === 3}
                         />
                         <label className="star star-3 star-label" htmlFor="star-3"></label>
                         <input
@@ -103,7 +101,7 @@ const EditReviewForm = () => {
                             name="stars"
                             id="star-4"
                             value="2"
-                            defaultChecked={rating == 2}
+                            defaultChecked={parseInt(rating) === 2}
                         />
                         <label className="star star-4 star-label" htmlFor="star-4"></label>
                         <input
@@ -112,7 +110,7 @@ const EditReviewForm = () => {
                             name="stars"
                             id="star-5"
                             value="1"
-                            defaultChecked={rating == 1}
+                            defaultChecked={parseInt(rating) === 1}
                         />
                         <label className="star star-5 star-label" htmlFor="star-5"></label>
                 </div>

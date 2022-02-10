@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReviewDropDown from './ReviewDropDown';
 import './ReviewSection.css'
 
