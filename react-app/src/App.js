@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginPage from './components/splash/Login';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import LogoutButton from './components/auth/LogoutButton';
 import SplashPage from './components/splash/SplashPage';
 import NewBusinessForm from './components/authenticated/NewBusinessForm';
 import NewReviewForm from './components/authenticated/NewReviewForm';
@@ -22,12 +21,10 @@ import SearchBusiness from './components/authenticated/SearchBusiness';
 import PhotoStream from './components/authenticated/PhotoStream';
 import UploadPicture from './components/authenticated/PhotoUpload';
 import BusinessCat from './components/authenticated/BusinessCat';
-import { authenticate } from './store/session';
 
 // Import states
 import { getAllBusinesses } from './store/business';
-import getAllBusinessesCat from './store/category'
-import * as sessionActions from './store/session'
+import * as sessionActions from './store/session';
 
 
 function App() {

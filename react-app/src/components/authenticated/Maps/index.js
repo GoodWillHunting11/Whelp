@@ -13,6 +13,7 @@ const BusinessMap = () => {
     return (
         <iframe
             className='embed-map'
+            title='location-map'
             src={`https://www.google.com/maps/embed/v1/place?key=${environment}
             &q=${singleMap['address']},${singleMap['city']}+${singleMap['state']}`}>
         </iframe>

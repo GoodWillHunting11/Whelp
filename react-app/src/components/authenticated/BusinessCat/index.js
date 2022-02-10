@@ -6,14 +6,9 @@ import './BusinessCat.css'
 
 const BusinessCat = () => {
     const { id } = useParams()
-    const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
     const selectedBusinesses = businesses.filter(business => business.categories[0].id === +id)
     const single = businesses.find(single => single.id === +id)
-    // const businessescat = useSelector(state => state.businessCatState.entries)
-    // const singleCat = businessescat.find(single => single.id === +id)
-
-
 
     let rating = 0;
     const ratings = single?.reviews?.map(review => review.rating)
