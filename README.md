@@ -61,8 +61,35 @@ What rhymes with Yelp? Whelp! Whelp also happens to mean puppy, so take this pup
    ```
 
 # Features Highlight
+## Responsive Mobile Navigation
+Whelp, what's the point of developing a social media site without making it accessible to users on their mobile devices? Whelp consists of multiple navigation components, each with their own responsive menus when a user's viewport drops below a certain pixel width. Once the mobile menu is enabled, the
+primary menu is disabled and a button appears allowing users to either open or collapse the new mobile menu. The mobile menus eliminate developer links, as those
+links should be seen in all their glory on the largest screens possible.
+
+![](./images/nav.jpg)
+
+## Star Ratings
+What's the point in having reviews if you can't display a quick one-two for users to see a business' ratings? While not technically challenging, seeing stars fill out in fractions is pretty cool! Because while you might like a 4.5 stars rated business, a 4.9 is even better!
+
+![](./images/star1.jpg)
+![](./images/star2.jpg)
+
 # Challenges Highlight
-# Code Preview
+## Google Maps
+Originally designed to produce a map and marker using a database that housed longitude and latitude coordinates, the Whelp team initially used a package that consisted of legacy code. While the package functioned as it was intended to, the package threw console warnings and lacked intuitive features, such as allowing users to grab directions from their locations to the businesses'.
+
+The Whelp team then moved to another package that was rich in features. While the new package offered more than the Whelp team required, the process of fetching coordinates with Google's Geocode API, writing the coordinates into the database, and having to do the process over again upon a listing update was more than it was worth. Although, the Whelp team did fully developed this feature!
+
+While searching through Google's different APIs, the Whelp team discovered a lightweight solution that not only updated without having to write to a second database table upon an address update, but provided every feature that users were accustomed to with Google Maps. The Whelp team ultimately executed upon the Maps feature by using Google's Embed Map API, which is completely free to use and allows users to tap on the map for directions to their favorite destinations.
+
+From around 50 lines of code compacted down to one iframe that concatenates relevant endpoint data to fetch a lightweight, feature rich, and reliable map.
+
+![](./images/maps.jpg)
+
+## Responsive Design
+In a world where mobile devices dominate internet usage (*no citation, but you should believe), responsive design is a must. However, with the vast array (hah!) of browser, monitor, tablet, and cellphone offerings, designing a great end product for different view ports is not only challenging, but it is also challenging for dev teams, as team members often experience different viewing experiences throughout the development phases. It is rumored that the Whelp development team is still optimizing Whelp's mobile viewing experience till this day.
+![](./images/resp.jpg)
+
 # Flask React Project
 
 This is the starter for the Flask React project.
