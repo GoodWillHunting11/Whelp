@@ -34,7 +34,7 @@ const PhotoStream = () => {
     return (
         <>
             <div className='title-container'>
-                <h1 className='photo-stream-title'>Photos from {single.name}</h1>
+                <h1 className='photo-stream-title'>Photos from <span className='photo-subtitle'>{single.name}</span></h1>
             </div>
             <div className='outside-grid'>
                     {single?.photos?.map((photo, idx) => (
