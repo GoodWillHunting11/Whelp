@@ -32,7 +32,7 @@ const BusinessCat = () => {
                 <>
                     {selectedBusinesses?.map(business => (
                         <div className='roll-container'>
-                            {business.photos.length > 1 ? <div className='roll-pic' style={{ backgroundImage: `url(${business?.photos[0]?.url})` }}> </div> : <div className='roll-no-pic'>
+                            {business.photos.length >= 1 ? <div className='roll-pic' style={{ backgroundImage: `url(${business?.photos[0]?.url})` }}> </div> : <div className='roll-no-pic'>
 
                             </div>}
 
