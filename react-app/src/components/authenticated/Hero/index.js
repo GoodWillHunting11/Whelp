@@ -14,7 +14,12 @@ function HeroImage() {
     const handleForm = async (e) => {
         e.preventDefault()
 
-        history.push(`/search/${search}`)
+        if(search.length > 0){
+            history.push(`/search/${search}`)
+        }
+        else{
+            history.push(`/`)
+        }
     }
     return (
         <div className='hero-container'>
