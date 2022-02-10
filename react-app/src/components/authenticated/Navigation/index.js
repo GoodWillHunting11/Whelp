@@ -44,7 +44,7 @@ function AppNavigation() {
                             <i className="fa fa-caret-down"></i>
                             </button>
                             <div className="dropdown-content">
-                            <a href="https://github.com/scorbz9" target="_blank" rel="noreferrer">Seth Corbett</a>
+                            <a href="https://www.linkedin.com/in/seth-corbett-230824231/" target="_blank" rel="noreferrer">Seth Corbett</a>
                             <a href="https://www.linkedin.com/in/aaron-short-780446179/" target="_blank" rel="noreferrer">Aaron Short</a>
                             <a href="https://www.linkedin.com/in/andres-aguilar-6408aa227/" target="_blank" rel="noreferrer">Andres Aguilar</a>
                             <a href="https://www.linkedin.com/in/thien-dang-ct/" target="_blank" rel="noreferrer">Thien Dang</a>
