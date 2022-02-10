@@ -18,11 +18,7 @@ function HeroImage() {
     const handleForm = async (e) => {
         e.preventDefault()
 
-        const payload = {
-            search,
-        }
-
-            history.push(`/search/${search}`)
+        history.push(`/search/${search}`)
     }
     return (
         <div className='hero-container'>
