@@ -22,7 +22,7 @@ const SingleBusiness = () => {
     const reviews = useSelector(state => state.reviewState.entries)
 
     const single = businesses.find(single => single.id === +id)
-    console.log(single?.photos)
+
     const formatPhone = (number) => {
         return number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")
     }

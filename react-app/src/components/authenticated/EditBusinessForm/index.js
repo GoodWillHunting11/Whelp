@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { editingBusiness } from '../../../store/business';
-import * as sessionActions from '../../../store/session'
 
 // Import pics
 import bath from '../../../img/bath.png'
@@ -12,7 +11,6 @@ import walker from '../../../img/walker.png'
 const EditBusinessForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const user = useSelector(state => state.session.user)
     const businesses = useSelector(state => state.businessState.entries)
     const { id } = useParams()
     const single = businesses.find(single => single.id === +id)
@@ -40,7 +38,7 @@ const EditBusinessForm = () => {
     const [zipcode, setZipcode] = useState(localStorage.getItem('zipcode'))
     const [phone, setPhone] = useState(localStorage.getItem('phone'))
     const [website, setWebsite] = useState(localStorage.getItem('website'))
-    const [category, setCategory] = useState(localStorage.getItem('category'))
+    const [category] = useState(localStorage.getItem('category'))
 
 
     const handleUpload = async (e) => {

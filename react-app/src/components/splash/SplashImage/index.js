@@ -16,7 +16,7 @@ function SplashImage() {
         <div className='main-container'>
             <div className='splash-content'>
                 <div className='splash-logo-container'>
-                    <img className='logo-img' src={logo} />
+                    <img alt='whelp-logo' className='logo-img' src={logo} />
                 </div>
                 <div className='splash-form-container'>
                     <form className='splash-search' >

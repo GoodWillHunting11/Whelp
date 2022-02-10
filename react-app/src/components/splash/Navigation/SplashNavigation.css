@@ -188,6 +188,11 @@
 .fa-nav-res {
   padding-left: 10px;
 }
+
+.res-margin {
+  margin: auto;
+}
+
 @media screen and (max-width: 800px) {
     .signup-button {
         display: none;

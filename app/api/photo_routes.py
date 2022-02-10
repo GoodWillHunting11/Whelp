@@ -10,6 +10,14 @@ photo_routes = Blueprint("photos", __name__)
 def index():
     return "hello"
 
+@photo_routes.route('/delete/<int:id>/', methods=['DELETE'])
+@login_required
+def delete_photo(id):
+    remove = Photo.query.get(id)
+    db.session.delete(remove)
+    db.session.commit()
+    return "Deleted"
+
 @photo_routes.route("/new", methods=["POST"])
 @login_required
 def upload_image():

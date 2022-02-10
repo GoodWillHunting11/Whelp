@@ -26,7 +26,7 @@ function SplashNavigation() {
                             <i className="fa fa-caret-down"></i>
                         </button>
                         <div className="dropdown-content">
-                            <a href="#" rel="noreferrer">Seth Corbett</a>
+                            <a href="https://github.com/scorbz9" target="_blank" rel="noreferrer">Seth Corbett</a>
                             <a href="https://www.linkedin.com/in/aaron-short-780446179/" target="_blank" rel="noreferrer">Aaron Short</a>
                             <a href="https://www.linkedin.com/in/andres-aguilar-6408aa227/" target="_blank" rel="noreferrer">Andres Aguilar</a>
                             <a href="https://www.linkedin.com/in/thien-dang-ct/" target="_blank" rel="noreferrer">Thien Dang</a>
@@ -43,7 +43,7 @@ function SplashNavigation() {
             <div className='responsive-nav'>
             <div className='drop-button' >
                 <img className='mobile-logo' alt='mobile-logo' src={logo} />
-                {show === false ? <a className='res-nav-bar-links' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faBars} className='fa-nav-res' /></a>:<a className='res-nav-bar-links' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faCaretSquareDown} className='fa-nav-res' /></a>}
+                {show === false ? <button className='res-nav-bar-links  res-margin' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faBars} className='fa-nav-res' /></button>:<button className='res-nav-bar-links res-margin' onClick={handleMenu}>Menu <FontAwesomeIcon icon={faCaretSquareDown} className='fa-nav-res' /></button>}
                 {show === true ? <Link to='/login' className='res-nav-bar-links'>Add a Business</Link>: <></>}
                 {show === true ? <a href="https://github.com/GoodWillHunting11/Whelp" className='res-nav-bar-links' target='_blank' rel="noreferrer">GitHub Repo</a>: <></>}
                 {show === true ? <Link className='res-nav-bar-links' to='/login'> Log in</Link>: <></>}

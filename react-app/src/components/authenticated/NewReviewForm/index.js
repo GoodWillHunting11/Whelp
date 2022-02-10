@@ -33,7 +33,7 @@ const NewReviewForm = () => {
         }
 
         const newRev = await dispatch(newReview(payload))
-        console.log(newRev)
+
 
         if (newRev.errors) {
             setErrors(newRev.errors)

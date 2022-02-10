@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from 'react-redux'
 
 // Import components
 import HeroImage from './Hero';
@@ -10,10 +9,30 @@ import './App.css'
 
 
 const HomeApp = () => {
-    const dispatch = useDispatch()
-    const user = useSelector(state => state.session.user)
+
     const businesses = useSelector(state => state.businessState.entries)
-    console.log('businesses', businesses)
+    let longRoll = []
+    if (businesses[7]) {
+        for (let i = 0; i < 8; i++) {
+            longRoll.push(businesses[i])
+        }
+    }
+
+    if (longRoll[1]) {
+        return (
+            <>
+                <HeroImage />
+                <h1 className='roll-heading'>Your Next Review Awaits</h1>
+                <div className='business-roll'>
+                    {longRoll.map((biz, idx) => (
+                        <BusinessRoll biz={biz} key={idx} />
+                    ))}
+                </div>
+            </>
+    )
+    }
+
+
     return (
             <>
                 <HeroImage />

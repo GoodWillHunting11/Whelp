@@ -33,7 +33,7 @@ export const editBusiness = editedBusiness => {
 
 export const editingBusiness = (id, name, address, city, state, zipcode, phone, website, category) => async dispatch => {
 
-    const response = await fetch(`/api/businesses/edit/${id}`,
+    const response = await fetch(`/api/businesses/edit/${id}/`,
     {method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -68,19 +68,19 @@ export const editingBusiness = (id, name, address, city, state, zipcode, phone, 
 
 export const getAllBusinesses = () => async dispatch => {
 
-    const response = await fetch(`/api/businesses`, {
+    const response = await fetch(`/api/businesses/`, {
         method: 'GET'
     })
 
     if (response.ok) {
         const businesses = await response.json()
-        console.log('hello', businesses)
+
         dispatch(loadBusinesses(businesses))
     }
 }
 
 export const removeBusiness = business => async dispatch => {
-    const response = await fetch(`/api/businesses/delete/${business}`, {
+    const response = await fetch(`/api/businesses/delete/${business}/`, {
         method: 'DELETE'
     })
 
@@ -92,7 +92,7 @@ export const removeBusiness = business => async dispatch => {
 
 export const newBusiness = (name, address, city, state, zipcode, phone, website, category) => async dispatch => {
 
-    const response = await fetch(`/api/businesses/new`, {
+    const response = await fetch(`/api/businesses/new/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ const businessReducer = ( state = initialState, action ) => {
             let target = action.deletedBusiness.id
             let removing = newState.entries.find(one => one.id === target)
             let idx = newState.entries.indexOf(removing)
-            console.log('here', idx)
+
             newState.entries.splice(idx, 1)
             return newState
         default:

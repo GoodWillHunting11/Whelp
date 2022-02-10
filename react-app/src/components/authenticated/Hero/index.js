@@ -1,19 +1,15 @@
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaw, faStethoscope, faCut, faDog, faBone, faBell } from '@fortawesome/free-solid-svg-icons'
 
 import './Hero.css'
 import logo from '../../../img/splash-logo.png'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-// import { getAllSearches } from '../../../store/search'
+
 
 function HeroImage() {
     const [search, setSearch] = useState("")
-    const dispatch = useDispatch()
     const history = useHistory()
-    const [errors, setErrors] = useState([]);
-    const params = useParams([])
 
     const handleForm = async (e) => {
         e.preventDefault()
@@ -24,7 +20,7 @@ function HeroImage() {
         <div className='hero-container'>
             <div className='hero-content'>
                 <div className='hero-logo-container'>
-                    <img className='logo-img' src={logo} />
+                    <img alt='logo' className='logo-img' src={logo} />
                 </div>
                 <div className='hero-form-container'>
                     <form className='hero-search' >
