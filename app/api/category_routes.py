@@ -20,10 +20,10 @@ def validation_errors_to_error_messages(validation_errors):
 
 @category_routes.route('/', methods=['GET'])
 def fetch_all():
-    all_cats = Category.query.options(joinedload(Category.business)).all()
+    all_cats = Category.query.options(joinedload(Category.business).joinedload(Business.photos_business)) \
+        .all()
     data = []
     for cat in all_cats:
-
         business_data = get_business(cat.business)
         each = {
             "id": cat.id,
@@ -36,6 +36,7 @@ def fetch_all():
 def get_business(business):
     data = []
     for each in business:
+        photo_data = get_photos(each.photos_business)
         business_set = {
             "id": each.id,
             "name": each.name,
@@ -44,7 +45,20 @@ def get_business(business):
             "state": each.state,
             "zipcode": each.zipcode,
             "phone": each.phone,
-            "website": each.website
+            "website": each.website,
+            "photos": photo_data
         }
         data.append(business_set)
+    return data
+
+def get_photos(photos):
+    data = []
+    for each in photos:
+
+        photo_set = {
+            "id": each.id,
+            "url": each.url,
+            "business": each.business_id,
+        }
+        data.append(photo_set)
     return data

@@ -19,7 +19,6 @@ def extract_lat_long(address_or_zipcode):
         return None, None, None
     try:
         results = r.json()['results'][0]
-        formatted_address = results['formatted_address']
         lat = results['geometry']['location']['lat']
         lng = results['geometry']['location']['lng']
     except:
