@@ -24,7 +24,6 @@ def fetch_all():
         .all()
     data = []
     for cat in all_cats:
-        print(cat.business)
         business_data = get_business(cat.business)
         each = {
             "id": cat.id,
