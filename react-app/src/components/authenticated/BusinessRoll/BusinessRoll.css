@@ -64,7 +64,8 @@
 .roll-more {
     display: flex;
     justify-content: flex-end;
-    padding-right: 50px;
+    padding-right: 10px;
+    align-items: center;
 }
 
 .roll-more-link {

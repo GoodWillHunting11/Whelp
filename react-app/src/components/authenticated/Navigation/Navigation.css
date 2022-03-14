@@ -68,7 +68,11 @@
     }
 
     .main-logged-nav {
-        margin-bottom: 100px;
+        margin-bottom: 75px;
+    }
+
+    .new-review-h1 {
+        margin-top: 25px !important;
     }
 
 }
