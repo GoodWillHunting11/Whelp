@@ -57,7 +57,7 @@
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
 
     .drop-button {
       display: block;
@@ -69,6 +69,10 @@
 
     .main-logged-nav {
         margin-bottom: 75px;
+    }
+
+    .new-review-h1 {
+        margin-top: 25px !important;
     }
 
 }
